@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="mail.css">
+    <script src="../jquery-1.12.4.min.js"></script>
+    <script src="data.js"></script>
+    <script src="mail.js"></script>
+    <title>邮箱</title>  
+</head>
+<body>
+   <div id="wrap">
+       <div id="tip" > 选中<span>几</span>封邮件</div>
+      <nav id="title"> 
+          <h1 id = 'log'>
+              <a href="#">邮箱</a>
+          </h1>
+          <div id="nav-t">
+                <a href="#">邮箱首页</a>
+                <a href="#">设置</a>
+          </div>
+      </nav>
+       <aside id = 'aside'>
+           <ul id="asideLi"></ul>
+       </aside>
+       <section id= 'con'>
+        <h4>收件箱（共96封，其中<a>未读邮件</a>9封）</h4>
+        <div class="" id="bar">
+            <button id="delete">删除</button>
+            <button>彻底删除</button>
+            <button>转发</button>
+            <button>举报</button>
+            <button>全部标记为已读</button>
+            <button>标记为...</button>
+            <button>移动到...</button>
+        </div>
+        <h3 id="checkAllBar"> <input type="checkbox" id="checkAll"></h3>
+        <ul id="check">
+           
+        </ul>
+       </section>
+   </div> 
+</body>
+</html>

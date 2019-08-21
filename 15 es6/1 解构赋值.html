@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+
+var p = {
+    name:"aaa",
+    age:'18',
+    firstName :'hu',
+    lastNme:'xiao'
+};
+//先解构赋值后声明  name：n——重命名 不存在的p的值可自己配置默认值 如 gender：g = 'men'  men就为默认值 若果p 中存在gender  则打印出来的值为p中gender的值无论值为什么类型
+
+// var {name:n,age:a} = p;
+// console.log(n,a) // aaa 18
+
+
+//先声明后解构赋值
+// var name = '';
+// ({name} = p);
+// console.log(name)
+
+
+var arr = [ 1,2,3,4,5,6,7]
+var [a,b,,c,...d]=arr;
+console.log(a,b,c,d) // 124[567]
+</script>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body{
+                background: #eee;
+            }
+            ul {
+                list-style: none;
+            }
+
+            button {
+                background: none;
+                width: 100px;
+                height: 30px;
+            }
+
+            .clear:after {
+                content: '';
+                display: block;
+                clear: both;
+            }
+
+            .btn {
+                width: 224px;
+                height: 40px;
+                padding: 0 350px;
+                margin: 6px auto;
+            }
+
+            .btn1 {
+                float: left;
+            }
+
+            .btn2 {
+                float: right;
+            }
+
+            .wrap {
+                width: 924px;
+                margin: auto;
+                border: 1px solid #ccc;
+            }
+
+            .imgwrap {
+                width: 300px;
+                height: 200px;
+                margin: 4px;
+                float: left;
+            }
+
+            .imgwrap img {
+                width: 300px;
+                height: 170px;
+            }
+
+            .imgwrap span {
+                width: 300px;
+                height: 30px;
+                display: block;
+                line-height: 30px;
+                text-align: center;
+            }
+        </style>
+        <script src="jquery-1.12.4.min.js"></script>
+        <script>
+            $(function () {
+
+                var on = true;
+                var $imgUrl = ['img/cake1.jpg', 'img/cake2.jpg', 'img/cake3.jpg', 'img/cake4.jpg', 'img/cake5.jpg', 'img/cake6.jpg'];
+
+
+                //生成内容
+                for (var i = 0; i < $imgUrl.length; i++) {
+
+                    var $aLi = '<li class="imgwrap"><img src="' + $imgUrl[i] + '"><span>第' + $imgUrl[i].charAt(8) + '张</span> ';
+
+                    $('.wrap').append($aLi);
+                };
+
+
+
+
+
+                $('.btn1').click(function () {
+
+                    var $newUrl = $imgUrl.reverse(); //每点击一次 重新把数组倒排列
+
+                    if (on) {
+
+                        $(this).html('从小到大');
+
+
+                    } else {
+
+                        $(this).html('从大到小');
+
+                    }
+                    on = !on;
+
+                    for (var i = 0; i < $('.imgwrap').length; i++) {
+
+                        $($('.imgwrap')[i]).find('img').attr('src', $newUrl[i]).end().find('span').html('第' + $newUrl[i].charAt(8) + '张');
+                    }
+
+                });
+
+
+
+                $('.btn2').click(function () {
+
+                    var randArr = [];
+                    var rdArrLen = 6;
+
+                    for (var i = 0; i < rdArrLen; i++) {
+
+                        var randNum = Math.ceil(Math.random() * rdArrLen);
+
+                        //通过indexOf 检查数组中是否存在当前值 -1为不存在 存在时会返回值所对应的下标
+                        if (randArr.indexOf(randNum) == -1) {
+
+                            randArr.push(randNum);
+
+                        } else {
+
+                            i--;
+
+                        }
+
+                    }
+
+                    for (var i = 0; i < $('.imgwrap').length; i++) {
+
+                        $($('.imgwrap')[i]).find('img').attr('src', 'img/cake' + randArr[i] + '.jpg').end().find('span').html('第' + randArr[i] + '张');
+
+                    }
+
+
+                })
+
+
+
+
+
+
+            });
+
+
+
+        </script>
+    </head>
+
+    <body>
+
+        <div class="btn clear">
+            <button class="btn1">从大到小</button>
+            <button class="btn2">随机排序</button>
+        </div>
+        <ul class="wrap clear">
+            <!-- <li class="imgwrap">
+            <img src="img/cake1.jpg" alt="">
+            <span> wwwwwwwwwwww </span>
+        </li> -->
+        </ul>
+
+
+    </body>
+
+</html>

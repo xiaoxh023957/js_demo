@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title></title>
+        <style>
+            ul,
+            li {
+                padding: 0;
+                margin: 0;
+            }
+
+            ul {
+                list-style: none;
+            }
+
+            img {
+                vertical-align: top;
+            }
+
+            .clear {
+                content: '';
+                display: block;
+                clear: both;
+            }
+
+            .wrap {
+                position: relative;
+                width: 300px;
+                height: 230px;
+            }
+
+            .meu {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            .meu li {
+                width: 50px;
+                height: 30px;
+                text-align: center;
+                line-height: 30px;
+                margin-right: 2px;
+                background: #eee;
+                float: left;
+            }
+
+            .meu .mactive {
+                background: skyblue;
+            }
+
+            .imgw {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 220px;
+                height: 200px;
+            }
+
+            .imgw img {
+                position: absolute;
+                left: 0;
+                width: 180px;
+                height: 200px;
+            }
+
+            .imgw ul {
+                position: absolute;
+                right: 0;
+            }
+
+            .imgw li {
+                width: 40px;
+                height: 50px;
+                font-size: 12px;
+                text-align: center;
+                line-height: 50px;
+                border: 1px solid #ccc;
+                margin-bottom: 2px;
+            }
+
+            .list2 {
+                display: none
+            }
+
+            .imgw .lactive {
+                background: #eee;
+            }
+        </style>
+        <script src="jquery-1.12.4.min.js"></script>
+        <script>
+            $(function () {
+
+                var $url = ['img/lm.jpg', 'img/lz.jpg', 'img/mg.jpg', 'img/pt.jpg', 'img/ym.jpg', 'img/yt.jpg'];
+
+                var timer = null;
+                var list1 = $('.list1')
+
+                $('.meu li').each(function (i) {
+                    $(this).click(function () {
+                        $(this).addClass('mactive').siblings().removeClass('mactive');
+                        $($('.imgw ul')[i]).show().siblings('ul').hide();
+                    })
+                });
+
+                $('.list1 li').each(function(i){
+                    $(this).click(function(){
+                        list($('.list1 li')[i], l )
+                    })
+                });
+
+                function list(li ){
+                    for( var i = 0 ; i < $(li).length; i++ ){
+                        $(li).addClass('lactive').siblings().removeClass('lactive');
+                        
+                    }
+                }
+
+                
+
+
+
+
+
+
+
+
+
+            })
+
+
+
+
+
+
+
+        </script>
+    </head>
+
+    <body>
+        <div class="wrap">
+            <ul class='meu clear'>
+                <li>菜单一</li>
+                <li>菜单二</li>
+            </ul>
+            <div class="imgw">
+                <img src="img/lm.jpg" alt="">
+                <ul class='list1'>
+                    <li>图一</li>
+                    <li>图二</li>
+                    <li>图三</li>
+                </ul>
+                <ul class='list2'>
+                    <li>图四</li>
+                    <li>图五</li>
+                    <li>图六</li>
+                </ul>
+            </div>
+        </div>
+    </body>
+
+</html>

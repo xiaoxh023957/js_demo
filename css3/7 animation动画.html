@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title></title>
+        <style>
+            /*
+   
+        @keyframes 关键帧名{
+            0%{}
+            25%{}
+            50%{}
+            75%{}
+            100%{}
+        }
+        
+        animation：动画完成时长 延迟时间 关键帧名  运动形式（linear匀速  ease缓冲 ease-in 由慢到快 ease-out由快到慢 ease-in-out 慢快慢） 重复次数（infinite无限） 播放前重置（alternate 上一次停止时位置执行-倒序 normal 直接跳到0%再执行-顺序 ） ；
+
+        animation-play-state：running播放 /paused 暂停
+    */
+            .div1 {
+                width: 440px;
+                height: 440px;
+                border: 1px solid #000;
+                position: relative;
+            }
+
+            .div2 {
+                width: 40px;
+                height: 40px;
+                background: skyblue;
+                position: absolute;
+                animation: 4s move infinite;
+            }
+
+            .div1:hover .div2{ animation-play-state: paused; }
+
+            @keyframes move {
+                0% {
+                    top: 0;
+                    left: 0;
+                }
+
+                25% {
+                    top: 0;
+                    left: 400px;
+                }
+
+                50% {
+                    top: 400px;
+                    left: 400px;
+                }
+
+                75% {
+                    top: 400px;
+                    left: 0;
+                }
+
+                100% {
+                    top: 0;
+                    left: 0;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="div1">
+            <div class="div2"></div>
+        </div>
+    </body>
+
+</html>

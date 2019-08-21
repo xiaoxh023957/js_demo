@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		#ul {  list-style: none; position: relative; }
+		li { width: 40px;height: 40px; border:1px solid #900; position: absolute; }
+	</style>
+	<script> 
+
+window.onload= function () {
+
+	var btn = document.getElementById('btn');
+	var ul = document.getElementById('ul');
+	var ali = ul.getElementsByTagName('li');
+	var off = true;
+
+
+	//总数
+	var num=100;
+	var column=10;
+	var rows = num/column;
+
+
+	btn.onclick = function(){
+
+		if(off)	{
+
+			//控制生成总数
+			for (var i = 0; i < num; i++) {
+				ul.innerHTML+='<li>'+(i+1)+'</li>';
+				
+			};
+
+
+				//控制生成行数
+			for (var i = 0; i < rows ; i++) {
+
+					
+					for (var j = 0; j <column; j++) {
+
+
+						var liindex = i*column+j ;
+
+						// if(liindex==num){
+
+						// 	return;
+						// }
+
+						ali[liindex].style.top = i*50+'px';
+						ali[liindex].style.left =  (j+1) *50 +'px';
+					}
+				}
+
+			
+
+		off = false;
+		}
+
+
+	}
+
+}
+
+
+	</script>
+</head>
+<body>
+
+	<button id="btn">生成100个li</button>
+	<ul id="ul"></ul>
+	
+</body>
+</html>

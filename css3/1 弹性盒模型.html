@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+
+  <style>
+    /* ------------旧版-------------------------
+     父级 display:box或inline-box 
+     box-orient:布局方向 horizontal 水平  vertical 垂直
+
+    父级 box-direction 元素排列顺序 normal 正序 reverse反序
+
+    父级 box-pack 水平方向富余空间管理  start 所有子元素在左 富余空间在右  end 所有子元素在右 富余在左  center 所有子元素居中  justify 富余在子元素之间平均分布 
+
+  父级 box-aligin 垂直方向富余空间管理 start 上 end下  center中
+
+   子级 box-ordinal-group 设置元素具体位置 如排在第几位；
+
+   子级 box-flex 相当于是把父级分成几份 是几就占几分， 公式 子元素的尺寸 = 父级盒子的尺寸*子元素的box-flex值 / 所有子元素box-flex值的和；
+
+    
+
+
+    ！！都需要写浏览器标识
+
+    ----------------------------新版-----------------------------------------新版-------------------------------------
+   
+  
+     父级 
+     
+    display：flex；
+    元素方向
+    flex-direction: row;方向为水平方向
+    flex-direction:column;方向为垂直方向
+
+    换行 
+    flex-wrap：nowrap 不换行 wrap换行 wrap-reverse换行到上方
+
+    flex-direction: row-reverse;方向为水平,元素排列为反序
+    flex-direction: column-reverse;方向为垂直,元素排列为反序
+
+    富余空间 
+        垂直方向
+            align-items: flex-start;元素在垂直开始位置，富余空间在垂直结束位置
+            align-items:flex-end;元素在垂直结束位置，富余空间在垂直开始位置
+            align-items:center;元素中间，富余空间两侧
+            align-items:baseline;与父级边框对齐
+           
+
+        水平方向
+          justify-content: flex-start;元素在水平开始位置，富余空间在水平的结束位置
+          （默认）justify-content:flex-end;元素在水平结束位置，富余空间在水平的开始位置
+          justify-content:center;元素在水平中间，富余空间在水平两侧
+          justify-content:space-between;富余空间平分在元素中间--没有留白
+          justify-content:space-around;富余空间平均分配在元素两侧--最旁边的元素距离父级有留白
+          
+
+
+
+   
+   
+   
+   
+   
+   
+   
+   
+    */
+
+    .wrap {
+
+      width: 1000px;
+      height: 1000px;
+      border: 1px solid #000;
+      /* ======旧版=========
+      display: -webkit-box;
+      -moz-box-align: center;
+      -moz-box-pack: center;
+
+      -webkit-box-align: center;
+      -webkit-box-pack: center;
+
+      -ms-box-align: center;
+      -ms-box-pack: center;
+
+      -o--boxalign: center;
+      -o--boxpack: center;
+      ====================== */
+      /* display: flex;
+      justify-content:space-around;
+      align-items:center; 水平居中 */
+
+       display: flex;
+      flex-direction:column;/*  水平方向 */
+      justify-content:space-around;/*富余空间处理*/
+    }
+
+    .wrap div {
+      width: 100px;
+      height: 100px;
+      background: pink;
+      ;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>grid布局</title>
+        <style>
+            body{
+              
+              
+                background: #eee;
+            }
+            div {
+                box-sizing: border-box;
+            }
+            .wrap {
+                width: 1180px;
+                  margin: 0 auto; 
+                display: grid;
+                grid-template-columns: repeat(5,1fr);
+                grid-template-rows:auto;
+                grid-template-areas:
+                    'header header header header header '
+                    'section section section section  aside'
+                    'footer footer footer footer footer';
+                grid-gap: 10px;
+            }
+
+            .header {
+                grid-area: header;
+                background: pink;
+                height: 100px;
+                display: grid;
+                grid-template-rows: auto;
+                 grid-template-columns: repeat(6,calc(100% / 6));
+                grid-template-areas: 
+                'head-t-l head-t-l head-t-l head-t-l head-t-r head-t-r'
+                'head-b head-b head-b head-b head-b head-b';  
+
+            }
+
+            .head-t-l{
+                height: 40px;
+                grid-area: head-t-l;
+                background: #f56868;
+                margin-right:10px;
+            }
+
+            .head-t-r{
+                height: 40px;
+                grid-area: head-t-r;
+                background: rgb(226, 213, 213);
+            }
+            .head-b{
+                height: 50px;
+                grid-area: head-b;
+                background: rgb(114, 67, 67);
+                 margin-top:10px;
+            }
+
+            .section {
+                grid-area: section;
+                background: rgb(243, 119, 233);
+            }
+
+            .aside {
+                grid-area: aside;
+                background: rgb(106, 243, 151);
+            }
+
+            .footer {
+                grid-area: footer;
+                background: rgb(243, 245, 132);
+                height: 100px;
+                 display: grid;
+                grid-template-rows: 40px 50px;
+                 grid-template-columns: 100%;
+                grid-template-areas: 
+                'footer-t '
+                'footer-b';  
+                grid-gap: 10px
+
+            }
+            .footer-t {
+                grid-area: footer-t ;
+                background: rgb(169, 236, 61);
+            }
+            .footer-b {
+                grid-area: footer-b;
+                background: rgb(85, 245, 125);
+                
+                
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <!---grid布局--->
+        <div class="wrap-w">
+            <div class="wrap">
+            
+                <div class="header">
+                    <div class="head-t-l">head-t-l</div>
+                    <div class="head-t-r">head-t-r</div>
+                    <div class="head-b">head-b</div>
+                </div>
+            
+                <div class="section">section <br>
+            
+            
+            
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br></div>
+            
+                <div class='aside'>aside</div>
+            
+                <div class="footer">
+                    <div class="footer-t">footer-t</div>
+                    <div class="footer-b">footer-b</div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+</html>

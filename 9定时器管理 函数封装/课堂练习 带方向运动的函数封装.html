@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<style type="text/css">
+		input{ margin: 10px; }
+		div{ width: 100px;height: 100px; background: pink;  margin: 20px; position: relative;left: 0;}
+	</style>
+	<script type="text/javascript" src="jquery-1.12.4.min.js"></script>
+	<script>
+	$(function(){
+
+		 var timer = null;
+
+		$($('input')[0]).click(function(){
+
+				move($('div'),'top',13,300)
+
+		})
+
+		$($('input')[1]).click(function(){
+
+			move($('div'),'top',13,30)
+		})
+
+		$($('input')[2]).click(function(){
+
+			move($('div'),'left',13,300,function(){
+				move($('div'),'top',13,300,function(){
+					move($('div'),'left',13,10,function(){ 
+						move($('div'),'top',13,10);
+					})
+				})
+			})
+		})
+
+		function move(obj, attr, dir, target,endFn){
+
+			clearInterval(obj.timer );
+
+			dir = parseInt(obj.css(attr))<target?dir : -dir;
+
+			obj.timer = setInterval(function(){
+
+			var divl = parseInt(obj.css(attr))+dir;
+
+			if(divl > target &&dir>0 ||divl < target && dir<0){ 
+
+					divl = target;
+				}
+
+				obj.css(attr,divl+'px');
+
+				if(divl == target){
+
+					clearInterval(obj.timer );
+
+					endFn&&endFn();
+				}
+
+			},100);
+
+		}
+
+
+
+	})
+
+
+
+
+	</script>
+
+</head>
+<body>
+
+<input type="button" value="往下">
+<input type="button" value="往上">
+<input type="button" value="走回字">
+<div></div>
+	
+</body>
+</html>

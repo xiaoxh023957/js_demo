@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <style>
+    /*
+       分栏式布局： column-width :栏目宽度
+                    column-count：栏目列数
+                    column-gap：间距
+                    column-rule：间隔线 1px solid #000
+
+    
+        http://caibaojian.com/ 前端博客
+        https://blog.csdn.net/hwhsong/article/details/83896404  弹性盒模型和响应式布局结合
+        https://jingyan.baidu.com/article/fec7a1e5d6e80a1190b4e7bd.html 响应式布局
+
+    Flex项目属性(添加在子元素上的)
+
+        flex-grow：number该属性控制flex容器是单行或者多行，同时横轴的方向决定了新行堆叠的方向。        order：<integer>：用整数值来定义排列顺序，数值小的排在前面。可以为负值。
+        flex：none | <' flex-grow '> <' flex-shrink >'? || <' flex-basis '>
+              复合属性。设置或检索弹性盒模型对象的子元素如何分配空间。
+              flex是flex-grow 行，flex-shrink收缩比率 和flex-basis 伸缩基准值 三个属性的缩写。第二个和第三个参数(flex-shrink和flex-basis)是可选值。其默认值是0 1 auto。
+
+
+        媒询 响应式布局：
+
+        引入方式1:<link rel='stylesheet' href='css文件' media ='all and(屏幕像素)'/>
+        引入方式2:@import url(css文件)(屏幕像素)
+
+        only只在这种设备上执行  all and连接  not 排除
+
+        @media all and（min-width屏幕像素）{
+         <768 xs  768xm 960sm 1180md 1180<lg
+         #选择器{ css代码}
+
+        }
+    
+    */
+
+  div { width: 100%;height: 100px; background: pink;border: 1px solid #000;float: left; box-sizing: border-box;}
+
+
+  @media all and (min-width:768px){
+
+div{
+  width:50%;
+  background: yellowgreen;
+}
+
+}
+ 
+
+   @media all and (min-width:960px) and (min-width:768px){
+
+    div{
+      width: 20%;
+      background: yellow;
+    }
+   
+  }
+
+   @media all and (min-width:1180px){
+    div{
+      width: 10%;
+      background: skyblue;
+    }
+   
+  }
+
+
+  </style>
+
+</head>
+<body>
+    
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+    
+</body>
+</html>

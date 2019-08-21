@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title></title>
+        <style>
+            li {
+                width: 300px;
+                height: 40px;
+                list-style-type: none;
+                border: 1px solid #fff;
+                padding-left: 20px;
+            }
+            
+            li input {
+                width: 40px;
+                height: 20px;
+                border: 1px solid #333;
+                background: #fff;
+                margin: 10px;
+                border-radius: 5px;
+                text-align: center;
+                outline: none;
+                cursor: default;
+                user-select: none
+            }
+        </style>
+        <script src='../jquery-1.12.4.min.js'></script>
+        <script>
+
+            $(function () {
+
+                for (var i = 0; i < $('li').length; i++) {
+
+                    $($('li')[i]).find('input[value="up"]').click(function () {
+ 
+                        $(this).parent().prev().before($(this).parent());
+
+                    })
+
+                    $($('li')[i]).find('input[value="down"]').click(function () {
+
+                        $(this).parent().next().after($(this).parent());
+
+                    })
+
+
+                }
+
+
+            })
+
+        </script>
+    </head>
+
+    <body>
+        <ul>
+            <li style="background: plum">
+                我是第一
+                <input type="text" value="up">
+                <input type="text" value="down">
+            </li>
+            <li style="background: aquamarine">
+                我是第二
+                <input type="text" value="up">
+                <input type="text" value="down">
+            </li>
+            <li style="background:pink ">
+                我是第三
+                <input type="text" value="up">
+                <input type="text" value="down">
+            </li>
+            <li style="background: powderblue">
+                我是第四
+                <input type="text" value="up">
+                <input type="text" value="down">
+            </li>
+            <li style="background:salmon ">
+                我是第五
+                <input type="text" value="up">
+                <input type="text" value="down">
+            </li>
+        </ul>
+    </body>
+
+</html>

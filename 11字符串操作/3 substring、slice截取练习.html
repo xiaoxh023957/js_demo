@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title></title>
+        <style>
+            div {
+                border: 2px solid #eee;
+                width: 400px;
+                padding: 10px;
+                margin: 20px auto;
+            }
+
+            p {
+                display: inline-block;
+            }
+
+            span {
+                color: blue;
+                cursor: pointer;
+            }
+        </style>
+        <script src="jquery-1.12.4.min.js"></script>
+        <script>
+            $(function () {
+                var con = $('p').html();
+                var newCon = '';
+                var on = true;
+
+                $('span').click(function () {
+                    if (on) {
+
+                        newCon = con.substring(0, 18); //substring 或 slice
+                        $('p').html(newCon);
+                        $('span').html('展开');
+
+                    } else {
+
+                        $('p').html(con);
+                        $('span').html('收缩');
+                        
+                    }
+                    on = !on;
+                })
+
+
+            });
+
+        </script>
+
+    </head>
+
+    <body>
+        <div>
+            <p>月光如流水一般，静静地泻在这一片片叶子和花上。薄薄的青雾浮起在荷塘里。叶子和花仿佛在牛乳中洗过一样；又像笼着轻纱的梦。虽然是满月，天上却有一层淡淡的云，所以不能朗照；但我以为这恰是到了好处——酣眠固不可少，小睡也别有风味的。月光是隔了树照过来的，高处丛生的灌木，落下参差不齐（9）的黑影，峭楞楞如鬼一般；弯弯的杨柳的稀疏的倩影（10），却又像是画在荷叶上。塘中的月色并不均匀；但光与影有着和谐的旋律，如梵婀玲（11）上奏着的名曲。<br>
+
+                荷塘的四面，远远近近，高高低低都是树，而杨柳最多。这些树将一片荷塘重重围住；只在小路一旁，漏着几段空隙，像是特为月光留下的。树色一例（12）是阴阴的，乍看像一团烟雾；但杨柳的丰姿（13），便在烟雾里也辨得出。树梢上隐隐约约的是一带远山，只有些大意罢了。树缝里也漏着一两点路灯光，没精打采的，是渴睡人的眼。这时候最热闹的，要数树上的蝉声与水里的蛙声；但热闹是它们的，我什么也没有。
+            </p>-->><span>收缩 </span>
+        </div>
+    </body>
+
+</html>

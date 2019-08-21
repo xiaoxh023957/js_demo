@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title></title>
+        <script>
+            //构造函数
+            // function person(name,age){
+
+            //     this.name = name;
+            //     this.age = age;
+            // }
+            // //构造函数原型挂载方法
+            // person.prototype.say = function(){
+
+            //     document.write('hello！');
+
+            // }
+
+            // p.say();
+
+            //通过class创建的函数 不能直接调用 必须通过new调用 添加方法时 两个方法之间不需要用逗号
+            class person {
+                constructor(name, age) {
+
+                    this.name = name;
+                    this.age = age;
+                }
+                say(){
+                    document.write('你好！我叫'+this.name +'今年'+this.age+'岁');
+                }
+                like(){
+                    document.write('  喜欢跳舞');
+                }
+            }
+            var p = new person('zm',27);
+
+           console.log(p);
+           p.say();
+           p.like();
+        </script>
+    </head>
+
+    <body>
+
+    </body>
+
+</html>

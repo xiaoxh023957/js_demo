@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+        *{margin: 0; padding: 0;}
+        ul {list-style: none;}
+        img { vertical-align: top; width: 70px; height: 100px;}
+        .clear::after { content:''; display: block;clear: both;}
+
+        ul{ position: relative; width: 600px; height: 100px;  overflow: hidden; }
+
+        li { position: relative; width: 70px; height: 200px;float:left;}
+    
+    
+    </style>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () { 
+
+            console.log( $($('li')[1]).css('top'))
+            var timer = null;
+            var num = 0;
+
+
+            function timeFn () {
+                    var myDate = new Date;
+                    var time = twoNnm(myDate.getHours()) +':'+ twoNnm(myDate.getMinutes()) +':'+  twoNnm(myDate.getSeconds());
+
+                    
+                    }
+
+             timer =  setInterval(function(){
+        
+              
+               $($('li')[1]).animate({top: -num*100+'px'},500);
+
+
+                num++;
+                console.log(num)
+               if(num == 3){
+               
+               num = 1;
+               $($('li')[1]).animate({top:'0px'},10);
+
+                   
+
+               }
+
+
+              },1000)
+              
+               
+            
+         })
+    
+    </script>
+</head>
+<body>
+    <ul class='clear'>
+        <li>
+            <img class="img1" src="img/0.png" alt="">
+            <img src="img/1.png" alt="">
+        
+        </li>
+
+        <li>
+            <img src="img/0.png" alt="">
+            <img src="img/1.png" alt="">
+        
+        </li>
+
+        <li>
+            <img src="img/00.png" alt="">
+        
+        </li>
+
+        <li>
+            <img src="img/0.png" alt="">
+            <img src="img/1.png" alt="">
+        
+        </li>
+
+        <li>
+            <img src="img/0.png" alt="">
+            <img src="img/1.png" alt="">
+        
+        </li>
+
+        <li>
+                <img src="img/00.png" alt="">
+        
+        </li>
+
+        <li>
+                <img src="img/0.png" alt="">
+                <img src="img/1.png" alt="">
+            
+            </li>
+            
+            <li>
+                <img src="img/0.png" alt="">
+                <img src="img/1.png" alt="">
+            
+            </li>
+
+    </ul>
+</body>
+</html>

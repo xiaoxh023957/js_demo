@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			ul {
+				margin: 0;
+				padding: 0;
+			}
+
+			ul li {
+				list-style-type: none;
+				margin: 0 auto;
+				width: 312px;
+				height: 30px;
+				border-top: 1px solid white;
+				background: #a0f9f9;
+				position: relative;
+			}
+
+			ul li:nth-child(2n) {
+				background: white;
+			}
+
+			ul li input {
+				margin: 10px 0 0 17px;
+				position: absolute;
+			}
+
+			ul li em,
+			ul li span,
+			div strong {
+				font-size: 12px;
+				line-height: 30px;
+				color: black;
+				font-style: normal;
+				font-weight: normal;
+				height: 30px;
+				font-family: "微软雅黑";
+				position: absolute;
+			}
+
+			ul li em {
+				left: 45px;
+			}
+
+			ul li span {
+				left: 208px;
+			}
+
+			div {
+				width: 312px;
+				height: 33px;
+				border-top: 1px solid #dedede;
+				border-bottom: 2px solid #4a4a4a;
+				margin: 0 auto;
+				position: relative;
+			}
+
+			div input {
+				position: absolute;
+			}
+
+			div input:first-child {
+				margin: 11px 0 0 17px;
+			}
+
+			div input:nth-of-type(2),
+			div input:nth-of-type(3),
+			div input:nth-of-type(4) {
+				width: 63px;
+				height: 25px;
+				border: 1px solid #cdcaca;
+				border-radius: 2px;
+				top: 4px;
+				padding: 0 0 0 30px;
+				font-size: 12px;
+				line-height: 23px;
+				color: #cdcaca;
+			}
+
+			div input:nth-of-type(2) {
+				left: 89px;
+				background: url('img/44.png') no-repeat 10px 6px;
+			}
+
+			div input:nth-of-type(3) {
+				left: 164px;
+				background: url('img/55.png') no-repeat 10px 6px;
+			}
+
+			div input:nth-of-type(4) {
+				left: 239px;
+				background: url('img/66.png') no-repeat 10px 6px;
+			}
+
+			div strong {
+				left: 45px;
+				height: 33px;
+				line-height: 33px;
+			}
+
+			#bot .inputbg { border:1px solid #425c5c ; color: #000;}
+		</style>
+		<script type="text/javascript" src="jquery-1.12.4.min.js"></script>
+		<script>
+			$(function () {
+
+				var $pColor = ['#a0f9f9', 'white'];
+				var $aLi = $("#list li");
+				var $checkBox = $("#list input[type='checkebox']");
+				var $allChecke = $("#bot input[name='allChecke']");
+				var $button = $('#bot input[type="button"]');
+				var num = 0;
+
+
+				$aLi.each(function (i) {
+
+
+
+					$(this).mouseover(function () {
+
+						$(this).css('background', '#eee');
+
+					});
+
+					$(this).mouseout(function () {
+
+						if ($(this).find('input').prop('checked') == false) {
+
+
+
+							$(this).css('background', $pColor[i % $pColor.length]);
+
+						} else {
+
+
+							$(this).css('background', '#eee');
+						}
+
+
+
+					});
+
+					$(this).find('input').click(function () {
+
+						var $checkeOff = $(this).prop('checked');
+
+						if ($checkeOff == false) {
+
+							num--;
+							$button.attr('disabled','disabled').removeClass('inputbg');
+							$checkeOff == true;
+
+						} else {
+
+							num++;
+							$button.removeAttr('disabled').addClass('inputbg');
+							$checkeOff == false;
+
+
+						}
+
+
+						if (num == $aLi.length) {
+
+							$allChecke.prop('checked', true);
+
+						} else {
+							$allChecke.prop('checked', false);
+						}
+					});
+
+				});
+
+
+				$allChecke.click(function () {
+
+					var $allCheckeOff = $(this).prop('checked');
+
+					if ($allCheckeOff == true) {
+
+						$button.removeAttr('disabled').addClass('inputbg');
+
+						$allCheckeOff == false;
+					
+
+						$("#list input").prop('checked', true);
+
+
+						for (var i = 0; i < $aLi.length; i++) {
+
+							$($aLi[i]).css('background', '#eee');
+
+						};
+
+
+					} else {
+
+						$("#list input").prop('checked', false);
+
+						$button.attr('disabled','disabled').removeClass('inputbg');
+
+						for (var i = 0; i < $aLi.length; i++) {
+
+							$($aLi[i]).css('background', $pColor[i % $pColor.length]);
+						};
+
+						$allCheckeOff == true;
+					};
+
+
+
+				});
+
+			});
+
+		</script>
+	</head>
+
+	<body>
+
+		<ul id="list">
+			<li>
+				<input type="checkbox" name="">
+				<em>私奔</em>
+				<span>梁博</span>
+			</li>
+			<li>
+				<input type="checkbox" name="">
+				<em>私奔私奔</em>
+				<span>梁博</span>
+			</li>
+			<li>
+				<input type="checkbox" name="">
+				<em>私奔</em>
+				<span>梁博梁博</span>
+			</li>
+			<li>
+				<input type="checkbox" name="">
+				<em>私奔</em>
+				<span>梁博</span>
+			</li>
+			<li>
+				<input type="checkbox" name="">
+				<em>私奔</em>
+				<span>梁博梁博梁博</span>
+			</li>
+			<li>
+				<input type="checkbox" name="">
+				<em>私奔私奔私奔</em>
+				<span>梁博</span>
+			</li>
+			<li>
+				<input type="checkbox" name="">
+				<em>私奔</em>
+				<span>梁博</span>
+			</li>
+			<li>
+				<input type="checkbox" name="">
+				<em>私奔私奔</em>
+				<span>梁博</span>
+			</li>
+			<li>
+				<input type="checkbox" name="">
+				<em>私奔</em>
+				<span>梁博梁博</span>
+			</li>
+			<li>
+				<input type="checkbox" name="">
+				<em>私奔</em>
+				<span>梁博</span>
+			</li>
+			<li>
+				<input type="checkbox" name="">
+				<em>私奔</em>
+				<span>梁博梁博梁博</span>
+			</li>
+			<li>
+				<input type="checkbox" name="">
+				<em>私奔私奔私奔</em>
+				<span>梁博</span>
+			</li>
+		</ul>
+		<div id="bot">
+			<input type="checkbox" name="allChecke">
+			<strong>全选</strong>
+			<input type="button" name="" value="收藏" disabled>
+			<input type="button" name="" value="添加" disabled>
+			<input type="button" name="" value="删除" disabled>
+		</div>
+	</body>
+
+</html>

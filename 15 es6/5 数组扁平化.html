@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title></title>
+        <script>
+            //数据扁平化 未纳入es标准 
+            // var arr = [1,2,3,4,[5,6,['a','b','c'],7,8],9,10,11]
+
+            // var a = arr.flat( Infinity); //参数几代表几层 Infinity无穷
+
+            // console.log(a) //1,2,3,4,5,6,a,b,c,7,8,9,10,11
+
+
+
+            //不能处理对象{}
+            // var arr2 = [1,2,3,{ x:1,y:2},4,5,6];
+
+            // var a = arr2.flat(Infinity ); 
+            // console.log(a) //1,2,3,{ x:1,y:2},4,5,6
+
+
+            let list = 
+               [ {
+                    "id": "0",
+                    "caption": "秒味课堂1",
+                    "time": "2018-12-30",
+                    "desc": "JS拖拽的进一步学习,移动与拉伸JS拖拽的进一步练习",
+                    child:{
+                    "id": "1",
+                    "caption": "秒味课堂2",
+                    
+                },
+                a:[1,2,3]
+                }
+
+]
+
+            
+            //reduce(prev ，current) prev 上次处理的结果 current这次处理的结果
+            // obj.reduce((prev ,current)=>{
+            //     return prev.concat(current)
+            // })
+
+
+  var i = list.map(item=>{
+    return item.child;
+})
+
+console.log(Array.isArray(i) )
+
+           
+        </script>
+    </head>
+
+    <body>
+
+    </body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <style>
+    /*
+ 
+    盒阴影： box-shadow：（inset内投影）x轴偏移px y轴偏移px  模糊半径px (扩展阴影半径--先扩展原有形状大小px，再画阴影) 颜色值;
+
+    box-shadow：(inset 3px 3px pink), 10px 10px 30px (5px) #000; 内投影加外阴影
+
+
+    盒倒影：  通过transform的scale、skew属性，和背景gradient渐变实现图片倒影渐变效果。 http://www.javanx.cn/20181226/css3-inverted/ 
+
+    拖拽 resize 配合overflow：auto使用  允许用户拖拽改变大小
+    both 水平垂直都可拖  horizontal  水平方向  vertical 垂直方向
+    */
+    
+   div{ 
+     width: 200px;height: 200px;
+      border:1px solid #000;
+     box-shadow: 10px 10px 30px 5px #000,inset 5px 5px 30px #000;
+    
+     }
+ 
+  </style>
+</head>
+<body>
+  <div></div>
+
+</body>
+</html>

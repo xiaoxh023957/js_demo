@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>热身练习 显示隐藏</title>
+		<style>
+			.clear:after {
+				content: '';
+				display: block;
+				clear: both;
+			}
+
+			span {
+				font-size: 16px;
+				font-weight: bold;
+			}
+
+			button {
+				padding: 10px;
+				background: red;
+				color: #fff;
+				border: none;
+			}
+
+			.div1 {
+				width: 50px;
+				height: 50px;
+				border: 1px solid #000;
+				margin-top: 20px;
+			}
+
+			.div2 {
+				position: relative;
+				width: 300px;
+				border: 1px solid #000;
+				margin: auto;
+				padding: 10px;
+				display: none;
+			}
+
+			dt,
+			dd {
+				margin: 4px;
+				padding: 0;
+				text-align: center;
+			}
+
+			dt {
+				float: left;
+			}
+
+			dd {
+				width: 50px;
+				padding: 5px;
+				border: 1px solid #000;
+				float: left;
+				cursor: pointer;
+			}
+
+			dd:hover {
+				background: #eee;
+			}
+
+			input {
+				margin-left: 10px;
+				padding: 4px 6px;
+				border: none;
+				background: skyblue;
+				position: relative;
+				left: 110px;
+			}
+		</style>
+		<script type="text/javascript" src="jquery-1.12.4.min.js"></script>
+		<script>
+			$(function () {
+				$('button').click(function () {
+					$('.div2').css('display', 'block');
+				});
+
+				$('.1').click(function () {
+					$('.div1').css('background', 'red');
+				});
+
+				$('.2').click(function () {
+					$('.div1').css('background', 'yellow');
+				});
+
+				$('.3').click(function () {
+					$('.div1').css('background', 'blue');
+				});
+
+				$('.4').click(function () {
+					$('.div1').css('width', '100px');
+				});
+
+				$('.5').click(function () {
+					$('.div1').css('width', '200px');
+				});
+
+				$('.6').click(function () {
+					$('.div1').css('width', '300px');
+				});
+
+				$('.7').click(function () {
+					$('.div1').css('height', '100px');
+				});
+
+				$('.8').click(function () {
+					$('.div1').css('height', '200px');
+				});
+
+				$('.9').click(function () {
+					$('.div1').css('height', '300px');
+				});
+
+				$('input[type=reset]').click(function () {
+					$('.div1').css('width', '50px');
+					$('.div1').css('height', '50px');
+					$('.div1').css('background', 'none');
+				});
+
+				$('input[type=submit]').click(function () {
+					$('.div2').css('display', 'none');
+				});
+
+			})
+		</script>
+
+	</head>
+
+	<body>
+		<span> 请为下面的div设置样式 </span>
+
+		<button>点击设置</button>
+		<div class="div1"></div>
+		<div class="div2">
+			<dl class="clear">
+				<dt>请选择颜色</dt>
+				<dd class="1">红</dd>
+				<dd class="2">黄</dd>
+				<dd class="3">蓝</dd>
+
+				<dt>请选择宽度</dt>
+				<dd class="4">100px</dd>
+				<dd class="5">200px</dd>
+				<dd class="6">300px</dd>
+
+				<dt>请选择高度</dt>
+				<dd class="7">100px</dd>
+				<dd class="8">200px</dd>
+				<dd class="9">300px</dd>
+			</dl>
+			<input type="reset" value="恢复">
+			<input type="submit" value="确定">
+		</div>
+	</body>
+
+</html>

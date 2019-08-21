@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title></title>
+        <style>
+            img {
+                width: 70px;
+                height: 100px;
+            }
+        </style>
+        <script src="jquery-1.12.4.min.js"></script>
+        <script>
+            $(function () {
+
+                var timer = null;
+
+                timer = setInterval(timeFn, 1000);
+
+                function timeFn() {
+                    var now = new Date;
+                    var newDate = new Date(2019, 5, 26, 0, 0);//月从0开始算 需要-1
+                    var t = Math.floor((newDate - now) / 1000);
+                    var day = Math.floor(t / 86400);
+                    var h = Math.floor(t % 86400 / 3600);
+                    var m = Math.floor(t % 86400 % 3600 / 60);
+                    var s = t % 60;
+                
+
+                    if (t >= 0) {
+
+                        var time = twoNnm(day) + ':' + twoNnm(h) + ':' + twoNnm(m) + ':' + twoNnm(s);
+
+                        for (var i = 0; i < $('img').length; i++) {
+
+                            if (!isNaN(time.charAt(i))) {
+                                $($('img')[i]).attr('src', 'img/' + time.charAt(i) + '.png');
+                            } else {
+                                $($('img')[i]).attr('src', 'img/00.png');
+                            }
+                        }
+                    } else {
+                         clearInterval(timer);
+                         $('p').html('时间到！') ;
+                         
+                    };
+
+                }
+                timeFn();
+
+                function twoNnm(n) {
+
+                    return n < 10 ? '0' + n : '' + n;
+                }
+            });
+
+
+
+        </script>
+    </head>
+
+    <body>
+        <p>距离2019-6-26 00:00 还有：</p>
+        <img src="img/0.png" alt="">
+        <img src="img/0.png" alt="">
+        <img src="img/00.png" alt="">
+        <img src="img/0.png" alt="">
+        <img src="img/0.png" alt="">
+        <img src="img/00.png" alt="">
+        <img src="img/0.png" alt="">
+        <img src="img/0.png" alt="">
+        <img src="img/00.png" alt="">
+        <img src="img/0.png" alt="">
+        <img src="img/0.png" alt="">
+    </body>
+
+</html>

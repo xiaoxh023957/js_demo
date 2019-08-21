@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            div {
+                height: 20px;
+                background: pink;
+            }
+
+            p {
+                height: 20px;
+                background: skyblue;
+            }
+
+            h1 { 
+                
+                height: 20px;
+                background: yellow;
+            }
+        </style>
+        <script src='../jquery-1.12.4.min.js'></script>
+        <script>
+            /*
+            .remove()   .after()  .before()  .replaceWith() 都是元素剪切移动  .clone() 才是复制
+            
+            */
+            $(function () {
+
+   
+                //克隆后元素插入到div后
+                var div2 = $('div').clone();  
+                $('div').after(div2);
+
+                //前后交换位置
+                // $('div').before($('p'));
+
+                //替换 被替换的元素不存在了
+                // $('div').replaceWith('<h1></h1>')
+
+               
+            })
+        </script>
+
+    </head>
+
+    <body>
+        <div>
+            <span>我是span标签<a>我是a标签</a></span>
+        </div>
+        <p></p>
+    </body>
+
+</html>

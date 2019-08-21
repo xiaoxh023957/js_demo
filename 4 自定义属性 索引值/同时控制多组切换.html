@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+
+	body , p{margin: 0; padding: 0;}
+	button { border: none; background: none; outline:none;}
+	img { vertical-align: top; }
+
+
+		.wrap { position: relative; width:900px; height: 500px; background: url(img/bg.jpg) no-repeat;  -webkit-background-size: 100%,100%;
+		background-size: 100%,100%;}
+
+		.wrap div { position: absolute; width: 200px;height: 300px;  border-radius: 10px; overflow: hidden; }
+		
+		.wrap div img { width: 220px;height: 300px; }
+
+		.wrap div p, .wrap div span {  width: 100%; position: absolute; left: 0;  color: #666; text-align: center;  background: #eee;}
+		.wrap div p { top: 0; }
+		.wrap div span { display: block; bottom: 0; }
+
+
+		button { width: 60px; height: 20px; margin:5px; border: 1px solid #ccc; border-radius: 5px; text-align: center; line-height: 15px;  }
+		button:hover { background: #ccc; color: #fff; }
+
+		.boxone { top:50px;  left: 220px;}
+
+		.boxtwo{ top: 150px; right: 220px; }
+	</style>
+
+	<script type="text/javascript" src="jquery-1.12.4.min.js"></script>
+	<script>
+
+	$(function () {
+		
+
+		var $url1 = [ 'img/组一1.jpg' ,'img/组一2.jpg','img/组一3.jpg','img/组一4.jpg','img/组一3.jpg','img/组一4.jpg'];
+		var $url2 = [ 'img/组二1.jpg','img/组二2.jpg','img/组二3.jpg'];
+
+		var num = 0;
+		var number = 0;
+
+
+		$('#next').click(function(){
+			
+			num++;
+			number++;
+
+			if(num == $url1.length){
+
+				num = 0;
+
+			};
+			boxoneFn();
+
+			if(number == $url2.length){
+
+				number = 0;
+
+			};
+			boxtwoFn();
+
+		});
+
+
+		$('#perv').click(function(){
+
+			num--;
+			number--;
+
+			if( num == -1){
+
+				num = $url1.length-1;
+
+			};
+			boxoneFn();
+
+			if( number == -1){
+
+				number = $url2.length-1;
+
+			};
+			boxtwoFn();
+
+
+		});
+
+		
+		function boxoneFn(){
+
+			$('.boxone img').attr('src' , $url1[num]);
+			$('.boxone p').html( num +1 +'/'+ $url1.length );
+			$('.boxone span').html('第一组'+(num+1)+'张');
+
+		};
+		
+		function boxtwoFn(){
+
+			$('.boxtwo img').attr('src' , $url2[number]);
+			$('.boxtwo p').html( number +1 +'/'+ $url2.length );
+			$('.boxtwo span').html('第二组'+(number+1)+'张');
+
+		};
+		boxoneFn();
+		boxtwoFn();
+		
+	});
+
+
+
+
+	</script>
+</head>
+<body>
+	<div class="wrap">
+		<button id="perv">上一组</button>
+		<button id="next">下一组</button>
+		<div class="boxone">
+			<img src="img/组一1.jpg">
+			<p></p>
+			<span></span>
+		</div>
+		<div class="boxtwo">
+			<img src="img/组二1.jpg">
+			<p></p>
+			<span></span> 
+		</div>
+	</div>
+</body>
+</html>

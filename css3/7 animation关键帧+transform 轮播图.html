@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title></title>
+        <style>
+            .wrap {
+                width: 400px;
+                height: 300px;
+                position: relative;
+                perspective: 800px;
+                transform-style: preserve-3d;
+                margin: 50px auto;
+
+            }
+
+            .wrap img {
+                width: 400px;
+                height: 300px;
+                position: absolute;
+                transform-origin: bottom;
+                transform: rotateX(-180deg);
+                opacity: 0;
+            }
+
+            .wrap input {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                border: none;
+                background: #eee;
+                color: #333;
+                font: 12px/40px '微软雅黑';
+                position: absolute;
+                top: 110px;
+            }
+
+            .wrap input:nth-child(1) {
+                left: -100px
+            }
+
+            .wrap input:nth-child(2) {
+                right: -100px
+            }
+
+            .wrap .show {
+                animation: 1s show;
+                transform: rotateX(0deg);
+                opacity: 1;
+            }
+
+            .wrap .hide {
+                animation: .5s hide;
+            }
+
+
+            @keyframes show {
+
+                0% {
+                    transform: rotateX(180deg);
+                    opacity: 0
+                }
+
+                50% {
+                    transform: rotateX(-20deg)
+                }
+
+                60% {
+                    transform: rotateX(15deg)
+                }
+
+                70% {
+                    transform: rotateX(-10deg)
+                }
+
+                80% {
+                    transform: rotateX(5deg)
+                }
+
+                100% {
+                    transform: rotateX(0deg);
+                    opacity: 1;
+                }
+
+            }
+
+            @keyframes hide {
+
+                0% {
+                    transform: rotateX(0deg);
+                    opacity: 1;
+                }
+
+                100% {
+                    transform: rotateX(-180deg);
+                    opacity: 0;
+                }
+            }
+        </style>
+        <script src="../jquery-1.12.4.min.js"></script>
+        <script>
+            $(function () {
+
+                var imgUrl = ['img/img1.jpg', 'img/img2.jpg', 'img/img3.jpg', 'img/img4.jpg', 'img/img5.jpg'];
+                var num = 0;
+
+                $.each(imgUrl, function (i) {
+
+                    var aImg = '<img src = "' + imgUrl[i] + '"/>';
+
+                    $('.wrap').append(aImg);
+
+                    $('img').eq(0).addClass('show');
+
+
+                })
+
+                $('.wrap input:nth-child(2)').click(function () {
+
+                    num++;
+
+                    if (num >= imgUrl.length) { num = 0; }
+
+                    $($('img')[num]).addClass('show').removeClass('hide').siblings().addClass('hide').removeClass('show');
+                })
+
+                $('.wrap input:nth-child(1)').click(function () {
+
+                    num--
+
+                    if (num <= 0) { num = imgUrl.length-1; }
+
+                    $($('img')[num]).addClass('show').removeClass('hide').siblings().addClass('hide').removeClass('show');
+                })
+
+
+            })
+
+
+        </script>
+    </head>
+
+    <body>
+        <div class="wrap">
+            <input type="button" value="perv">
+            <input type="button" value="next">
+        </div>
+    </body>
+
+</html>

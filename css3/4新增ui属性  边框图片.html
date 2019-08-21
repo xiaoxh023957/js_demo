@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+    /*
+    border-image 引入图片
+    borer-image-slice 切割图片  不带单位px
+    border-image-width 边框宽度
+    border-image-repeat 图片排列方式 round 平铺--建议使用  repeat重复 --会产生叠加  stretch拉伸
+    
+    
+    */
+    
+    div { width:400px;height: 400px;
+        border: 40px solid transparent;
+        border-image:url('img/ht.png')  135/*上下切割*/ 116/*左右切割*/ stretch /*排列方式*/;
+       
+    }
+    
+    </style>
+</head>
+<body>
+    
+    <div></div>
+</body>
+</html>

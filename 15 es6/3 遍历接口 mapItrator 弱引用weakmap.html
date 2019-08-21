@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title></title>
+        <script>
+            var arr = [10, 20, 30];
+            // console.log(arr[Symbol.iterator]); //查看是否部署了遍历接口 出现一个函数则证明部署了遍历接口
+            // var v = arr.values();// keys() == 索引值
+            // console.log(v.next()); //done 遍历完了为true 没有没false
+            // console.log(v.next());
+            // console.log(v.next());
+            // console.log(v.next());
+
+            // for (var a of arr) {
+
+            //     console.log(a) //10,20,30 内容
+            // }
+
+            // for (var i in arr) {
+
+            //     console.log(i) // 0,1,2 下标
+            // }
+
+            //weakMap 可避免内存泄漏问题 但他不具有遍历接口 因此不能使用for of循环
+
+           // var map = new Map();
+           var wm = new WeakMap();
+            var zm = {
+                name:'zm',
+                age:18
+            }
+
+            var ls = {
+                name:'ls',
+                age:20
+            }
+
+            // map.set(zm,'hn');
+            // map.set(ls,'gd');
+
+           wm .set(zm,'hn');
+           wm .set(ls,'gd');
+
+            // 控制台输入ls = null; 清空内存时 Map类型时不起作用  weakMap时被置空了
+           // console.log(map)//0: {Object => "hn"}
+                            // key: {name: "zm", age: 18}
+                            // value: "hn"
+
+                            // 1: {Object => "gd"}
+                            // key: {name: "ls", age: 20}
+                            // value: "gd"
+                            // length: 2
+
+            console.log(wm)   
+
+        </script>
+    </head>
+
+    <body>
+
+    </body>
+
+</html>

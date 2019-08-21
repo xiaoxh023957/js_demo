@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		#ul {  list-style: none; position: relative; }
+		li { width: 20px;height: 20px; border:1px solid #900; position: absolute; }
+	</style>
+	<script> 
+
+window.onload= function () {
+
+	var btn = document.getElementById('btn');
+	var ul = document.getElementById('ul');
+	var ali = ul.getElementsByTagName('li');
+	var off = true;
+	btn.onclick = function(){
+
+		if(off)	{
+			for (var i = 0; i < 10; i++) {
+				ul.innerHTML+='<li>'+(i+1)+'</li>';
+
+				ali[i].style.top = 10+'px';
+				ali[i].style.left =  (i+1) *40  +'px';
+
+			}
+			off = false;
+		}
+
+
+	}
+
+}
+
+
+	</script>
+</head>
+<body>
+
+	<button id="btn">生成10个li</button>
+	<ul id="ul"></ul>
+	
+</body>
+</html>

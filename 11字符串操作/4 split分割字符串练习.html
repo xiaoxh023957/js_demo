@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+        div{ width: 400px; height: 400px; border: 1px solid #000; overflow: auto; overflow-x: hidden;}
+        span { width: 40px;height: 40px; display: inline-block;margin: 2px; text-align: center;line-height: 40px;}
+    </style>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+    $(function () { 
+
+        var clr = ['pink','skyblue','yellow','#ccc']
+
+        $('input[type="button"]').click(function(){
+
+            var val = $('input[type="text"]').val(); //得到字符串
+            var con = val.split(''); //分割成数组
+           
+            for(var i = 0; i< con.length; i++){
+                //套span外壳
+                con[i] = '<span style = "background:'+clr[i%clr.length]+'">'+ con[i]+'</span>';
+            }
+           
+            $('div').append(con.join('')+'<br>') //.join 数组转字符串  参数不写默认以逗号连接
+        })
+
+
+     })
+    
+    
+    
+    </script>
+</head>
+<body>
+    <div></div>
+    <input type="text"  >
+    <input type="button" value="发送">
+</body>
+</html>

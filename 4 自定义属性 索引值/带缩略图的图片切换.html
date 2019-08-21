@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<style>
+
+	body , ul, li { margin: 0;padding: 0;}
+	ul{ list-style: none;}
+	a { text-decoration: none; }
+
+	.wrap { width: 682px;height: 468px; padding: 30px 18px 72px ; position: absolute; }
+
+	.wrap ul { height: 20px; position: absolute; bottom: 36px;}
+	.wrap li { width: 20px; height: 20px; border-radius: 50%; background: #fff; float: left; margin-right: 5px; position: relative;}
+	a { width: 40px; height: 40px; display: block; border-radius: 50%; background: #ef9408; color: #fff; font-size: 30px; font-weight: bold; text-align: center; line-height: 35px; position: absolute; top: 220px;  opacity: .5;}
+	a:hover { opacity: 1; }
+
+	#perv { left: 30px; }
+	#next { right: 30px; }
+
+	.imgwrap { width: 682px;height: 456px; }
+	.imgwrap img { width: 682px;height: 456px; }
+	
+	.imginfo { width: 112px; height: 72px; background: #fff; padding:4px; position: relative ;  display: none;}
+
+	.imginfo img { width: 112px; height: 72px; }
+
+	.imginfo span { width: 0;height: 0;  display: block; border:8px solid transparent; border-top: 8px solid #fff;  position: absolute; bottom: -16px; left : 52px;}
+
+	.wrap .active { background: pink;  }
+	</style>
+	<script type="text/javascript" src="jquery-1.12.4.min.js"></script>
+	<script >
+	$(function () {
+		
+		var $imgUrl = [
+
+				'img/cake1.jpg',
+				'img/cake2.jpg',
+				'img/cake3.jpg',
+				'img/cake4.jpg',
+				'img/cake5.jpg'
+			];
+
+			var num = 0;
+			var $ulPos =0;
+			var timer = null;
+
+
+
+		//自动播放
+		autoPlay();
+
+		 $('.wrap').on({
+
+		 	mouseover:function(){
+
+		 		clearInterval( timer);
+		 	},
+
+		 	mouseout:function(){
+
+		 		clearInterval( timer);
+
+		 		autoPlay();
+
+		 	}
+
+
+		 });
+
+		//下面的创建列表
+		$.each($imgUrl,function(i){
+
+			var $Li = '<li></li>';
+			
+			//ul 动态居中
+			$ulPos = ($('.wrap').innerWidth()-$('ul').width())/2;
+
+			$('ul').css('left', $ulPos + 'px');
+
+			$('ul').append($Li);
+
+
+		});
+
+
+		//li 点击切换和移入移出效果
+		$('ul li').each( function(i){
+
+			 imgFn(num);
+
+			$(this).on({
+				click:function(){
+					num = i;
+					imgFn();
+
+				},
+
+				mouseover:function(){
+					num = i;
+					infoFn(this);					
+				},
+
+
+				mouseout:function(){
+
+					$('.imginfo').css('display','none');
+				}
+
+			});
+
+		});
+
+
+		$('#perv').click(function(){
+
+			num--;
+
+			if( num == -1){
+
+				alert('已经是第一张了');
+				num = 0;
+			};
+
+			imgFn();
+
+		});
+
+
+		$('#next').click(function(){
+			
+			num++;
+
+			if( num == $imgUrl.length){
+
+				alert('已经是最后一张了');
+
+				num = $imgUrl.length-1;
+					
+			};
+
+			imgFn();
+
+		});
+
+		//控制图片路径与外层div背景
+		function imgFn(){
+
+			$('ul li').attr('class','').eq(num).attr('class','active');
+
+			$('.imgwrap img').attr('src',$imgUrl[num]);
+			
+			$('.wrap').css( {'background':'url('+$imgUrl[num]+') no-repeat','background-size':'300% 300%'} );
+		};
+
+		//缩略图位置与路径
+		function infoFn(obj){
+
+			var $infoLeft = $ulPos +  obj.offsetLeft -50;
+
+			$('.imginfo').css({'display':'block','top': '420px', 'left':  $infoLeft+'px' });
+
+			$('.imginfo img').attr('src', $imgUrl[num]);
+
+		};
+
+
+		//定时器封装
+		function autoPlay(){
+			timer = setInterval(function(){
+
+				num++;
+
+				num%= $imgUrl.length;
+
+				imgFn();
+
+			},2000);
+		};
+
+
+	});
+	</script>
+
+</head>
+
+<body>
+	<div class="wrap">
+
+		<div class="imgwrap">
+
+			<img src="" alt="">
+
+		</div>
+
+		<ul></ul>
+
+		<a id="perv" href="javascript:;">&lt;</a>
+		<a id="next" href="javascript:;">&gt;</a>
+
+	</div>
+
+	<div class="imginfo">
+		<img src="img/cake1.jpg" alt="">
+		<span></span>
+	</div>
+	
+</body>
+</html>

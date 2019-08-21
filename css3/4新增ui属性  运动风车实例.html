@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"  initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+        .wrap {
+            width: 400px; height: 400px;
+           margin:auto; transition: 5s linear ; /* 运动 */
+
+        }
+        .wrap div { width: 192px; height: 192px;  margin: 4px;box-sizing: border-box; background:url('img/bg.jpg') no-repeat;float:left;}
+
+        .wrap div:nth-child(1), .wrap div:nth-child(4) {
+         border-radius: 0 60%;
+        }
+
+        .wrap div:nth-child(2), .wrap div:nth-child(3) {
+         border-radius: 60% 0;
+        }
+
+        .wrap:hover{
+            transform:rotate(810deg); /*旋转*/
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+</html>

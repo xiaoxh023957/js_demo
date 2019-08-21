@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title></title>
+        <style>
+
+            /*
+            处理兼容 ： 
+            -webkit-linear-gradient 
+            -moz-linear-gradient  
+            -o-linear-gradient  
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='开始颜色', endColorstr='结束颜色',GradientType=0 --1从左往右 0从上到下 ); 
+            
+            
+            */
+            div {
+                width: 300px;
+                height: 300px;
+                border:1px solid #000;
+                background:
+                -webkit-linear-gradient( -30deg, rgba(255,255,255,0) 0,rgba(255,255,255,0) 190px, rgba(255,255,255,.9)200px, rgba(255,255,255,.9)210px,rgba(255,255,255,0)220px) no-repeat -300px 0,  url('img/bg.jpg') no-repeat;
+                background-size: 200% 200% ;
+                transition: 1s;
+            }
+
+            div:hover{background-position: 300px 0/*第一张图*/,-100px -100px/*第二张图*/;}
+        </style>
+    </head>
+
+    <body>
+        <div></div>
+    </body>
+
+</html>

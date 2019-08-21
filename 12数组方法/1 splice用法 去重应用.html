@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <script src="../jquery-1.12.4.min.js"></script>
+        <script>
+            // var arr =['阳光','海浪','沙滩']
+
+            // arr.splice(0,2) //删除前2个
+
+            // arr.splice(0,2,'阳光或沙滩') //用阳光或沙滩替换前两个['阳光或沙滩','沙滩']
+
+            // arr.splice(1,0,'可乐') //在阳光和海浪中间添加可乐
+
+
+            //数组去重
+            var arr = [1, 3, 5, 3, 2, 3, 4, 5, 6, 8, 8, 9, 0, 9, 5];
+
+            for (var i = 0; i < arr.length; i++) {
+                for (var j = i + 1; j < arr.length; j++) {
+                    if (arr[i] == arr[j]) {
+                        arr.splice(j, 1);
+                    }
+                }
+            }
+            // console.log(arr)
+
+            //利用set 数组去重并排序
+            var arr2 = [2, 3, 22, 5, 7, '34', 2, 6, 6, 2, '63', 45];
+
+            var sort = arr2.sort(function (a, b) {
+                return a - b;
+            })
+
+            var arr2S = new Set(sort);
+            // console.log(arr2S);//{2,3, 5, 6, 7, 22, "34", 45, "63"}
+            //.set出来的对象需要转为数组
+            var arr2T= [...arr2S];
+
+            // var a2 = [...new Set(arr2)]//综合
+            // console.log(a2)
+
+
+            //jq 一个函数重复元素的数组
+            var arr2 = [1, 2, 3, 4, 5, 4, 3, 2, 1];
+            var newArr = [];
+            for (var i = 0; i < arr2.length; i++) {
+                var items = arr2[i];
+                //判断元素是否存在于new_arr中，如果不存在则插入到new_ar中
+                if ($.inArray(items, newArr) == -1) {
+                    newArr.push(items);
+                }
+            }
+            // console.log(newArr)
+
+        </script>
+    </head>
+
+    <body>
+
+    </body>
+
+</html>

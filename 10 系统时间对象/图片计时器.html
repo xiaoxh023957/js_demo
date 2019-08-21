@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title></title>
+        <style>
+            img {
+                width: 70px;
+                height: 100px;
+            }
+        </style>
+        <script src="jquery-1.12.4.min.js"></script>
+        <script>
+            $(function () {
+
+                setInterval(timeFn, 1000);
+
+                function timeFn() {
+                    var myDate = new Date;
+                    var time = twoNnm(myDate.getHours()) + ':' + twoNnm(myDate.getMinutes()) + ':' + twoNnm(myDate.getSeconds());
+
+                    for (var i = 0; i < $('img').length; i++) {
+                        if (!isNaN(time.charAt(i))) {
+
+                            $($('img')[i]).attr('src', 'img/' + time.charAt(i) + '.png');
+
+                        } else {
+                            $($('img')[i]).attr('src', 'img/00.png');
+                        }
+                    }
+                }
+                timeFn();
+
+                function twoNnm(n) {
+
+                    return n < 10 ? '0' + n : '' + n;
+                }
+            });
+
+
+
+        </script>
+    </head>
+
+    <body>
+        <img src="img/0.png" alt="">
+        <img src="img/0.png" alt="">
+        <img src="img/0.png" alt="">
+        <img src="img/0.png" alt="">
+        <img src="img/0.png" alt="">
+        <img src="img/0.png" alt="">
+        <img src="img/0.png" alt="">
+        <img src="img/0.png" alt="">
+    </body>
+
+</html>

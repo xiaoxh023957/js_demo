@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title></title>
+        <style>
+            /*
+        -webkit-linear-gradient(起始位置或角度，颜色(点px %)，颜色(点px %))
+        -webkit-repeating-linear-gradient(起始位置或角度，颜色(点px %)，颜色(点px %)渐变平铺
+         
+        */
+            *{margin: 0;padding: 0;}
+
+            div[class^='div'] {
+                width: 200px;
+                height: 200px;
+                margin: 30px;
+            }
+
+            .div1 {
+                background: -webkit-linear-gradient(left top, blue, red);
+            }
+
+            .div2 {
+                background: -webkit-linear-gradient(60deg, blue 30px, red 30%);
+            }
+
+            .div3 {
+                background: -webkit-repeating-linear-gradient(60deg, blue 30px, red 30%);
+            }
+
+            .d4 {
+                width: 200px;
+                height: 30px;
+                border: 1px solid #eee;
+                margin: 40px;
+                overflow: hidden;
+            }
+
+            .d5{ width: 400px; height: 30px; background:-webkit-repeating-linear-gradient(340deg,skyblue 0,skyblue 10px,#fff 10px,#fff 20px);transition:5s;}
+
+            .d4:hover  .d5{ margin-left:-200px ;}
+        </style>
+    </head>
+
+    <body>
+        <div class="div1"></div>
+        <div class="div2"></div>
+        <div class="div3"></div>
+        <div class="d4">
+            <div class="d5"></div>
+        </div>
+    </body>
+
+</html>

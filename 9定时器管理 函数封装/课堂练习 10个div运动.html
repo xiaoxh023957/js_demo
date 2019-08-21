@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{padding: 0;margin: 0;}
+			.wrap div {
+				width: 60px;
+				height: 60px;
+				background: yellow;
+			}
+		</style>
+		<script type="text/javascript" src="jquery-1.12.4.min.js"></script>
+		<script type="text/javascript" src="hxtFnpackage.js"></script>
+		<script>
+			$(function () {
+
+				var timer = null;
+
+				var num = 0;
+				var end = true;
+
+
+				for (var i = 0; i < 15; i++) {
+
+					var $div = '<div style="position:absolute;top: 10px;left:' + i * 70 + 'px"></div>';
+
+
+					$('.wrap').append($div);
+
+				}
+
+
+
+				$(document).click(function () {
+
+					clearInterval(timer);
+
+					if (end == true) {
+
+						timer = setInterval(function () {
+
+							doMove($($('.wrap div')[num]), 'top', 20, 50, 500);
+
+							num++;
+
+
+
+							if (num == $('.wrap div').length) {
+
+								clearInterval(timer);
+								num = 0;
+								end = false
+							}
+					
+						}, 200)
+
+					
+
+					} else {
+						
+						clearInterval(timer);
+						timer = setInterval(function () {
+
+							doMove($($('.wrap div')[num]), 'top', 20, 50, 0);
+							num++;
+
+							if (num == $('.wrap div').length) {
+
+								clearInterval(timer);
+								num = 0;
+								end = true;
+							}
+
+						}, 200)
+
+
+
+
+					}
+
+
+
+				})
+
+
+
+
+			})
+
+		</script>
+	</head>
+
+	<body>
+		<div class="wrap">
+		</div>
+	</body>
+
+</html>

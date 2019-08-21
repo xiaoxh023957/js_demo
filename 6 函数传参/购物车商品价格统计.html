@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	body, h4, p, ul, li, button{ margin: 0; padding: 0; }
+	ul { list-style: none; }
+	img { vertical-align: top; }
+	button { border: none; background: none; outline: none; }
+	strong { font-weight: normal;  }
+	em { font-style: normal; }
+
+	.shoppingcart { width: 300px; padding: 10px  30px 20px;  border: 1px solid #999;}
+
+	.shoppingcart li { width: 100%; height: 110px; border-bottom: 1px dashed #ccc; position: relative; margin-bottom:10px }
+ 
+	.prodbox{ width: 100px; height: 100px;  margin-bottom: 10px;  position: absolute; left: 0;}
+
+	.prodbox img { width: 100px; height: 100px; }
+
+	.prodinfo{ width: 190px; height: 100px; position: absolute; right: 0; }
+
+	.prodinfo h4 { line-height: 30px; }
+
+	.prodinfo p { font-size: 14px; line-height: 30px;color: red;}
+
+	.prodinfo span { width: 120px; position: absolute; bottom: 0px;  right: 0px;}
+
+	.prodinfo button { width: 20px; height: 16px;border: 1px #ccc solid; line-height: 16px; }
+
+	.count { width: 100%; height: 30px; position: relative; top: 10px;}
+
+	.count span { width: 220px; display: inline-block; line-height: 30px;}
+
+	.count button { width: 60px;border:1px solid #ccc; font-size: 20px; line-height: 30px; background: #ff9016; color: #fff; position: absolute; right: 0; top : 0;}
+
+	</style>
+	<script type="text/javascript" src="jquery-1.12.4.min.js"></script>
+
+	<script >
+$(function(){
+		
+	
+		var $ali = $('li');
+		
+	for (var i = 0; i < $ali.length; i++){
+
+		$($ali[i]).find('em').html($($ali[i]).find('p').html());
+
+		fn($ali[i]);
+		
+		
+	};
+
+	function fn( li){
+
+		var num = $(' li strong').html();
+		var $strong = $(li).find('strong');
+		var $em = $(li).find('em');
+		var $add = $(li).find('.add');
+		var $cut = $(li).find('.cut');
+		var $unitP= $(li).find('p').html();
+
+	    $add.click(function(){
+			num++;
+			$strong.html(num);
+			$em.html(Math.round(($unitP*num)* 100) / 100 +'元');
+		});
+
+		 $cut.click(function(){
+
+			num--;
+			if( num < 0 ){
+
+				num = 0 ;
+			};
+			
+			$strong.html(num);
+			$em.html(Math.round(($unitP*num)* 100) / 100 +'元');
+		});
+	};
+
+
+
+	$('.count button').click(function(){
+		
+		var $allP = [];
+
+		for (var i = 0; i < $ali.length; i++) {
+
+			var $emCon = $($ali[i]).find('em').html();
+
+		    $allP.push(parseFloat($emCon));
+		}
+
+		var sum = 0;
+
+		for (var i = 0; i < $allP.length; i++){
+
+			sum += $allP[i];
+		};
+
+		$('.count strong').html(Math.round(sum * 100) / 100 +'元');
+		
+
+	});
+});
+
+
+	</script>
+</head>
+<body>
+
+	<div class="shoppingcart">
+		<ul>
+			
+			<li>
+				<div class="prodbox">
+
+					<img src="img/tz.jpg" >
+
+				</div>
+				
+				<div class="prodinfo">
+					<h4>新鲜水蜜桃</h4>
+					<p>18.6</p>
+					<button  class="add">+</button>
+					<strong >1</strong>
+					<button class="cut">-</button>
+					<span>小计：<em></em></span>
+				</div>
+
+			</li>
+
+			<li>
+				<div class="prodbox">
+
+					<img src="img/jz.jpg" >
+
+				</div>
+				
+				<div class="prodinfo">
+					<h4>冰糖橙</h4>
+					<p>16.00</p>
+					<button class="add">+</button>
+					<strong>1</strong>
+					<button class="cut">-</button>
+					<span>小计：<em></em></span>
+				</div>
+
+			</li>
+
+
+			<li>
+				<div class="prodbox">
+
+					<img src="img/yt.jpg" >
+
+				</div>
+				
+				<div class="prodinfo">
+					<h4>山东樱桃</h4>
+					<p>25.00</p>
+					<button class="add">+</button>
+					<strong>1</strong>
+					<button class="cut">-</button>
+					<span>小计：<em></em></span>
+				</div>
+
+			</li>
+
+
+			<li>
+				<div class="prodbox">
+
+					<img src="img/tm.jpg" >
+
+				</div>
+				
+				<div class="prodinfo">
+					<h4>特甜小台芒</h4>
+					<p>8.9</p>
+					<button class="add">+</button>
+					<strong>1</strong>
+					<button class="cut">-</button>
+					<span>小计：<em></em></span>
+				</div>
+
+			</li>
+
+
+			<li>
+				<div class="prodbox">
+
+					<img src="img/lm.jpg" >
+
+				</div>
+				
+				<div class="prodinfo">
+					<h4>蓝莓鲜果</h4>
+					<p>24.00</p>
+					<button class="add">+</button>
+					<strong>1</strong>
+					<button class="cut">-</button>
+					<span>小计：<em></em></span>
+				</div>
+
+			</li>
+
+
+			<li>
+				<div class="prodbox">
+
+					<img src="img/lz.jpg" >
+
+				</div>
+				
+				<div class="prodinfo">
+					<h4>大李子</h4>
+					<p>6.9</p>
+					<button class="add">+</button>
+					<strong>1</strong>
+					<button class="cut">-</button>
+					<span>小计：<em></em></span>
+				</div>
+
+			</li>
+			
+		</ul>
+
+		<div class="count">
+			<span>合计：<strong></strong></span>
+			<button>结算</button>
+		</div>
+
+
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title></title>
+
+
+    </head>
+
+    <body>
+        <input type="text">
+        <input type="button" value="加密">
+        <div>
+
+        </div>
+
+        <script>
+            var aInp = document.getElementsByTagName('input');
+
+            var button = aInp[1];
+
+            var div = document.getElementsByTagName('div')[0];
+
+            button.onclick = function () {
+
+                var str = aInp[0].value;
+                
+                var newStr = '';
+
+                for (var i = 0; i < str.length; i++) {
+
+                    newStr += String.fromCharCode(str.charCodeAt(i)-1000);
+                    //(str.charCodeAt()转为编码（数字形式）  string.fromCharCode()编码转为对应位置的内容（文字形式）
+                }
+
+                div.innerHTML = newStr;
+            }
+
+
+
+
+        </script>
+    </body>
+
+</html>

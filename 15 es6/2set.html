@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title></title>
+        <script>
+            // set 是数据结构 不会添加重复值
+
+            var arr = new Set([1, 2, 3, 4])
+
+            // arr.add(1).add('a');
+            // console.log(arr)//[1,2,3,4,'a']
+
+            // arr.delete('a');
+            // console.log(arr) //[1,2,3,4]
+
+            // console.log( arr.has(2)) // true
+
+            // arr.clear()
+            // console.log( arr) // {}
+
+
+            arr.forEach(function (item, index, set) {
+                //item 值 index 索引 setset的完整数据
+                console.log(item, index, set) // 4 4 [1,2,3,4];
+
+            })
+
+            //利用set 获取5个 1-10之间的随机不重复数
+            // var s = new Set;
+
+            // for(var i = 0; i < 5;i++){
+
+            //     var num = Math.floor(Math.random()*10 );
+
+            //     s.add(num);
+
+            //     if(s.size>=5){
+
+            //         break;
+
+            //     }else{
+
+            //         i--;
+            //     }
+            // }
+
+            //利用set 数组去重并排序
+            var arr2 = [2, 3, 22, 5, 7, '34', 2, 6, 6, 2, '63', 45];
+
+            var sort = arr2.sort(function (a, b) {
+                return a - b;
+            })
+
+            var arr2S = new Set(arr2);
+   
+            console.log(arr2S);
+        </script>
+    </head>
+
+    <body>
+
+    </body>
+
+</html>

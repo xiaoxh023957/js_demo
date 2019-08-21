@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title></title>
+    </head>
+
+    <style>
+        .clear:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .wrap {
+            position: relative;
+        }
+
+        strong {
+            display: inline-block;
+            line-height: 40px;
+            float: left;
+        }
+
+        .wrap>img {
+            width: 20px;
+            height: 20px;
+            margin-top: 10px;
+            float: left;
+        }
+
+        p {
+            display: none;
+            float: left;
+            margin-left: 10px;
+            font-size: 14px;
+            color: #ff7639;
+        }
+
+        .info {
+            width: 234px;
+            height: 38px;
+            border: 1px solid #dedead;
+            float: left;
+            margin-left: 10px;
+        }
+    </style>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+
+
+            var $text = ['很差', '较差', '还行', '推荐', '力荐'];
+            var $url = ['img/k.png', 'img/s.png'];
+            var off = true;
+            var num = 0;
+            var $img = $('.wrap>img');
+
+            $.each($img, function (i) {
+
+                $(this).on({
+
+                    mouseover: function () {
+
+                        score(i);
+
+                    },
+
+                    click: function () {
+
+                        if (off) {
+
+                            off = false;
+
+                        } else if (num == i) {
+
+                            off = true;
+                        }
+
+                        num = i;
+                    },
+
+                    mouseout: function () {
+
+                        $('.info').show();
+                        $('p').hide();
+
+                        if (off) {
+
+                            for (var i = 0; i < $img.length; i++) {
+
+                                $($img[i]).attr('src', 'img/n.png');
+                            }
+                        } else {
+
+                            score(num);
+                        }
+                    }
+
+                });
+            });
+
+
+            function score(n) {
+
+                $('.info').hide();
+                $('p').show().html($text[n]);
+
+                for (var i = 0; i < $img.length; i++) {
+
+                    $($img[i]).attr('src', 'img/n.png');
+
+                }
+
+
+                if (n < 2) {
+
+                    for (var j = 0; j < n + 1; j++) {
+
+                        $($img[j]).attr('src', $url[0]);
+
+                    }
+
+                } else {
+
+                    for (var j = 0; j < n + 1; j++) {
+
+                        $($img[j]).attr('src', $url[1]);
+
+                    }
+
+                };
+
+
+
+            };
+
+
+
+
+
+
+
+
+
+        });
+    </script>
+
+    <body>
+        <div class="wrap clear">
+            <strong>总体评价：</strong>
+            <img src="img/n.png">
+            <img src="img/n.png">
+            <img src="img/n.png">
+            <img src="img/n.png">
+            <img src="img/n.png">
+            <p>111</p>
+            <div class="info">
+                <img src="img/info.png">
+            </div>
+        </div>
+    </body>
+
+</html>

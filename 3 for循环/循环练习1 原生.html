@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>循环练习1</title>
+	<style >
+		body, ul, li, h4, p, h5 { margin: 0; padding: 0; }
+		ul{ list-style: none; }
+		strong, em { font-weight: normal; font-style: normal;}
+		button{ border:none; }
+		-img { vertical-align: top; }
+
+		h4 { line-height: 40px; margin-top: 100px;}
+		.conwrap { width: 410px; height: 144px; padding: 10px 0 10px 5px; border-top: 1px solid #a2a2a2 ;  position: absolute;}
+
+		.conwrap ul { width: 410px; height: 144px; z-index: 1; }
+		 .conwrap li { width: 48px; height: 72px; margin: 0 9px; float: left; margin-bottom: 8px; position: relative; }
+		.conwrap li p, .conwrap li span { text-align: center;  font-size: 8px;}
+		.conwrap span { display: block; color: #9c9c9c; }
+
+		.imgwrap { width: 46px;height: 41px;  }
+
+
+		.info { width: 186px; height: 110px; border: 1px solid #c3c3c3; border-radius: 4px; background: #fff; position: absolute; z-index: 2;   display: none; }
+		.info p, strong, em { font-size: 10px; line-height: 20px;}
+
+		.info strong { position: absolute; right:10px; bottom: 2px;}
+		.info em { color: #e10f5f; }
+		.info img { width: 63px;height: 11px; }
+
+
+		.infotitle {  height: 32px; padding: 5px 10px; background: #dee7ef; position: relative; }
+		.infotitle button { width: 50px; height: 18px; color: #fff; font-size:10px; line-height: 18px; background: #73c65a url(img/infobg.gif) no-repeat 7px 5px; text-indent: 12px;  border-radius: 2px; position: absolute; top: 10px; right: 4px;}
+		.infotitle span  { font-size: 8px; color: #9c9c9c; }
+
+
+
+
+		.infocon { height: 44px; padding: 0 10px; }
+
+	</style>
+
+	<script>
+window.onload=function () {
+	var oConwrap = document.getElementById('conwrap');
+	var oUl= oConwrap.getElementsByTagName('ul')[0];
+	var aLi= oUl.getElementsByTagName('li');
+	var oInfo = document.getElementById('info');
+
+	var num = 0;
+	var oP = oUl.getElementsByTagName('p');
+	var oSpan = oUl.getElementsByTagName('span');
+
+
+
+	var infoH5 = oInfo.getElementsByTagName('h5')[0];
+	var infoSpan = oInfo.getElementsByTagName('span')[0];
+	var infoP = oInfo.getElementsByTagName('p')[0];
+
+	for (var i = 0; i < aLi.length; i++) {
+		aLi[i].index = i;
+		aLi[i].onmouseenter = function(){
+
+			var liTop = this.offsetTop - 110;
+			var liLeft = this.offsetLeft+20;
+			var oPcon = oP[this.index].innerHTML;
+			var oSpancon = oSpan[this.index].innerHTML;
+
+
+			oInfo.style.display = 'block';
+			oInfo.style.top =  liTop + 'px';
+    		oInfo.style.left =liLeft + 'px';
+
+    		infoH5.innerHTML = oPcon;
+    		infoSpan.innerHTML = oSpancon.substring(0,2);
+			
+		}
+		aLi[i].onmouseleave = function(){
+
+			oInfo.style.display = 'none';
+		}
+
+	}
+}
+
+
+	</script>
+
+</head>
+<body>
+	<h4>最新上线</h4>
+	<div class="conwrap" id="conwrap">
+		<ul>
+			<li>
+				<div class="imgwrap">
+					<img src="img/1.png" alt="">
+				</div>
+				<p>娱乐观</p>
+				<span>新闻类</span>
+			</li>
+			<li>
+				<div class="imgwrap">
+					<img src="img/2.png" alt="">
+				</div>
+				<p>封面人物</p>
+				<span>新闻类</span>
+			</li>
+			<li>
+				<div class="imgwrap">
+					<img src="img/3.png" alt="">
+				</div>
+				<p>皓客天气</p>
+				<span>生活类</span>
+			</li>
+			<li>
+				<div class="imgwrap">
+					<img src="img/4.png" alt="">
+				</div>
+				<p>爱壁纸</p>
+				<span>娱乐类</span>
+			</li>
+			<li>
+				<div class="imgwrap">
+					<img src="img/5.png" alt="">
+				</div>
+				<p>海岛大亨</p>
+				<span>游戏类</span>
+			</li><li>
+				<div class="imgwrap">
+					<img src="img/6.png" alt="">
+				</div>
+				<p>指南针股</p>
+				<span>工具类</span>
+			</li>
+
+			<li>
+				<div class="imgwrap">
+					<img src="img/7.png" alt="">
+				</div>
+				<p>布丁电影</p>
+				<span>生活类</span>
+			</li>
+			<li>
+				<div class="imgwrap">
+					<img src="img/8.png" alt="">
+				</div>
+				<p>搜狐汽车</p>
+				<span>生活类</span>
+			</li>
+			<li>
+				<div class="imgwrap">
+					<img src="img/9.png" alt="">
+				</div>
+				<p>QQ个性</p>
+				<span>娱乐类</span>
+			</li>
+			<li>
+				<div class="imgwrap">
+					<img src="img/10.png" alt="">
+				</div>
+				<p>图片故事</p>
+				<span>新闻类</span>
+			</li>
+			<li>
+				<div class="imgwrap">
+					<img src="img/11.png" alt="">
+				</div>
+				<p>QQ旅游</p>
+				<span>生活类</span>
+			</li><li>
+				<div class="imgwrap">
+					<img src="img/12.png" alt="">
+				</div>
+				<p>驾校一点</p>
+				<span>工具类</span>
+			</li>
+
+
+		</ul>
+
+	
+
+
+		<dinv class="info" id="info">
+			<div class="infotitle">
+				<h5>搜狐汽车图库</h5>
+				<span>生活</span>
+				<button>添加</button>
+			</div>
+			<div class="infocon">
+				<p>文字描述文字描述文字描述文字描述文字描述文字描述</p>
+			</div>
+			<img src="img/star.gif" alt="">
+			<em>4.0</em>
+			<strong><em>76876</em>人已添加</strong>
+		</div>
+	</di>
+	
+</body>
+</html>

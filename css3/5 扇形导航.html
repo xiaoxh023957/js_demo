@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title> </title>
+        <style>
+            body {
+                background: #eee;
+            }
+
+            .menu {
+                width: 50px;
+                height: 50px;
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .menu-list {
+                width: 42px;
+                height: 42px;
+                position: relative;
+                margin: 4px;
+            }
+
+            .menu-list img {
+                width: 38px;
+                height: 38px;
+                border-radius: 50%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                transition: .5s all ease
+            }
+
+            .home {
+                width: 50px;
+                height: 50px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                background: #eee url('img/menu.png') no-repeat;
+                border-radius: 50%;
+                background-size: 100% 100%;
+                transition: 1s
+            }
+        </style>
+        <script src="../jquery-1.12.4.min.js"></script>
+        <script>
+            $(function () {
+
+                var off = true;
+
+                var R = -150;
+
+                for (var i = 0; i < $('img').length; i++) {
+
+                    $($('img')[i]).click(function () {
+
+                        $(this).css({ 'Transition': '.3s ', 'transform': 'scale(1.5) rotate(-720deg)', 'opacity': '.1'});
+
+                        //transitionend 事件
+                        $(this).one('transitionend', function () {
+
+                            $(this).css({
+
+                                'Transition': '.1s ', 'transform': 'scale(1) rotate(-720deg)', 'opacity': '1'
+                            });
+                        })
+                    })
+
+
+                }
+
+
+                $('.home').click(function () {
+
+                    if (off) {
+                        $(this).css({ 'Transform': 'rotate(-360deg)' });
+
+                        //设置img left top值 并延时旋转展开
+                        for (var i = 0; i < $('img').length; i++) {
+
+                            var LT = getLT(R, 90 / 4 * i);
+
+                            $($('img')[i]).css({ 'top': LT.t + 'px', 'left': LT.l + 'px', 'Transition': '.5s ' + i * 100 + 'ms', 'Transform': ' scale(1) rotate(-720deg)'});
+                        }   
+                        // transform顺序问题 后写的先执行；顺序影响效果
+
+                    } else {
+
+                        $(this).css({ 'Transform': 'rotate(0deg)' })
+
+                        //反方向旋转收缩
+                        for (var i = 0; i < $('img').length; i++) {
+
+                            $($('img')[i]).css({ 'top': '0px', 'left': '0px', 'Transition': '.5s ' + ($('img').length - i - 1) * 100 + 'ms', 'Transform': 'scale(1) rotate(0deg) ' });
+                        }
+
+                    }
+                    off = !off;
+                })
+
+
+
+
+                function getLT(R, deg) {
+                    /*  已知直角三角形斜边长度150 夹角90/4 求对边临边 sin 临边  cos对边*/
+                    // 角度转弧度 角度/180*π
+                    // 求left值
+                    var left = Math.round(Math.sin(deg / 180 * Math.PI) * R);
+                    var top = Math.round(Math.cos(deg / 180 * Math.PI) * R);
+
+                    return { l: left, t: top }
+                }
+
+            })
+
+        </script>
+    </head>
+
+    <body>
+        <div class="menu">
+            <div class="menu-list">
+                <img src="img/qq.png" alt="">
+                <img src="img/sp.png" alt="">
+                <img src="img/wx.png" alt="">
+                <img src="img/img.png" alt="">
+                <img src="img/dt.png" alt="">
+            </div>
+            <div class="home"></div>
+        </div>
+    </body>
+
+</html>

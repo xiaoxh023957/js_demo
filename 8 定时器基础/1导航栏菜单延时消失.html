@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title></title>
+        <style>
+            ul,
+            li {
+                padding: 0;
+                margin: 0;
+            }
+
+            ul {
+                list-style: none;
+                font-size: 12px;
+                text-align: center;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            .clear:after {
+                content: '';
+                display: block;
+                clear: both;
+            }
+
+
+
+
+
+            nav span {
+                display: block;
+                position: absolute;
+                top: 5px;
+                right: 8px;
+            }
+
+            nav span>a {
+                font-size: 12px;
+                color: #fff;
+            }
+
+            nav {
+                position: relative;
+                width: 490px;
+                height: 24px;
+                padding: 5px 13px;
+                border: 1px solid #21639c;
+                border-radius: 10px;
+                background: #84b2de;
+
+            }
+
+
+            .nav>li {
+                position: relative;
+                width: 68px;
+                height: 24px;
+                padding: 0 3px;
+                border-right: 1px solid #18426b;
+                float: left;
+            }
+
+            .nav>li:last-child {
+                border-right: none;
+            }
+
+            .nav>li>a {
+                width: 68px;
+                height: 24px;
+                display: block;
+                border-radius: 6px;
+                font-size: 14px;
+                color: #fff;
+                text-align: center;
+                line-height: 25px;
+            }
+
+            .nav>li>a:hover {
+                background: rgba(255, 255, 255, .5);
+            }
+
+
+            .navmeu {
+                position: absolute;
+                top: 40px;
+                width: 300px;
+                height: 12px;
+                padding: 6px 0 6px 10px;
+                border: 1px solid #94b5d6;
+                display: none;
+                border-radius: 4px;
+            }
+
+            .navmeu li {
+                height: 12px;
+                padding: 0 8px;
+                border-right: 1px solid #7b5ab5;
+                float: left;
+            }
+
+            .navmeu li a {
+                display: block;
+                color: #215a9c;
+                line-height: 12x;
+            }
+
+            .navmeu li a:hover {
+                text-decoration: underline;
+            }
+        </style>
+
+        <script src="jquery-1.12.4.min.js"></script>
+        <script>
+            $(function () {
+
+                var $navli = $('.nav>li');
+                var timer = null;
+
+
+                $.each($navli, function () {
+
+
+                    var This = this;
+
+                    $(this).on({
+
+                        mouseover: function () {
+
+                            clearTimeout(timer);
+                            $(this).find('.navmeu').show().end().siblings().find('.navmeu').hide();;
+                            
+                        },
+
+                        mouseout: function () {
+
+                            timer = setTimeout(function () {
+
+                                $(This).find('.navmeu').hide();
+
+                            }, 300)
+
+                        }
+
+                    });
+
+                    $(this).find('.navmeu').on({
+
+                        mouseover: function () {
+
+                            clearTimeout(timer);
+                            
+                            $(this).show();
+                        },
+                        mouseout: function () {
+
+                            $(this).hide();
+                        }
+
+                    });
+                });
+            });
+
+
+
+
+
+        </script>
+    </head>
+
+    <body>
+        <nav>
+            <ul class="nav clear">
+                <li>
+                    <a href="#">首页</a>
+                    <div class="navmeu">
+                        <ul class="clear">
+                            <li><a href="#">最新更新</a></li>
+                            <li><a href="#">活动</a></li>
+                            <li><a href="#">报名试听</a></li>
+                            <li><a href="#">学员反馈</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">关于我们</a>
+                    <div class="navmeu ">
+                        <ul class="clear">
+                            <li><a href="#">妙味讲师</a></li>
+                            <li><a href="#">培训方式</a></li>
+                            <li><a href="#">培训理念</a></li>
+                            <li><a href="#">联系我们</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">作品</a>
+                    <div class="navmeu">
+                        <ul class="clear">
+                            <li><a href="#">般固</a></li>
+                            <li><a href="#">MATRIX</a></li>
+                            <li><a href="#">留学e网</a></li>
+                            <li><a href="#">ECMall</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">博客</a>
+                    <div class="navmeu">
+                        <ul class="clear">
+                            <li><a href="#">JS教程</a></li>
+                            <li><a href="#">弹出层效果</a></li>
+                            <li><a href="#">3D球面</a></li>
+                            <li><a href="#">Window计算器</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <span><a href="#">>>更多</a></span>
+        </nav>
+    </body>
+
+</html>

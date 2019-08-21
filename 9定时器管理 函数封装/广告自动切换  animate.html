@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title> </title>
+	</head>
+	<style>
+		body,
+		ul,
+		li,
+		p,
+		h3 {
+			padding: 0;
+			margin: 0;
+		}
+
+		ul {
+			list-style: none;
+		}
+
+		img {
+			vertical-align: top;
+		}
+
+		.clear:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+
+		.wrap {
+			position: relative;
+			width: 506px;
+			height: 306px;
+			border: 4px solid #eee;
+			overflow: hidden;
+		}
+
+		.wrap ul {
+			position: relative;
+			top: 0;
+			left: 0;
+			width: 4000px;
+		}
+
+		.wrap li {
+			width: 506px;
+			height: 306px;
+			float: left;
+		}
+
+		.wrap li img {
+			position: relative;
+			width: 506px;
+			height: 306px;
+		}
+
+		.wrap .info {
+			position: relative;
+			left: 4px;
+			bottom: 0px;
+			width: 478px;
+			height: 80px;
+			padding: 0 11px;
+			background: rgba(0, 0, 0, .5);
+			color: #fff;
+		}
+
+		.info h3 {
+			line-height: 42px;
+			font-weight: normal;
+		}
+
+		.info p {
+			line-height: 17px;
+			font-size: 14px;
+			text-indent: 2em;
+		}
+	</style>
+	<script type="text/javascript" src="jquery-1.12.4.min.js"></script>
+	<script>
+		$(function () {
+			var timer = null;
+			var $li = $('.wrap ul li');
+
+
+
+			var num = 0;
+
+			timer = setInterval(fn, 3000);
+
+			$('.wrap .info').css('bottom', 0).eq(0).animate({ bottom: '80px' }, 800).delay(1000).animate({ bottom: '0px' }, 800);
+
+
+			function fn() {
+				//console.log($($li[num]).find('.info'));
+				// var clone = $(".wrap li").first().clone();//克隆第一张图片
+
+				//                $(".wrap ul").append(clone);//复制到列表最后
+				//                
+				//                $('ul').append($('ul li:eq(0)'));
+
+
+
+				//$($li[num]).find('.info').animate({bottom:'80px'},200);
+				num++;
+
+				console
+				if (num == $li.length) {
+
+					num = 1;
+
+					$('.wrap ul').css({ left: 0 });
+				}
+
+				$('.wrap ul').animate({ left: -num * 506 + 'px' }, 500);
+
+				$('.wrap .info').css('bottom', 0).eq(num).animate({ bottom: '80px' }, 800).delay(1000).animate({ bottom: '0px' }, 800);
+
+			}
+
+
+			$('.wrap ul').on({
+
+				mouseover: function () {
+
+					clearInterval(timer);
+					$('.wrap .info').css('bottom', '80px')
+
+
+				},
+
+				mouseout: function () {
+
+					timer = setInterval(fn, 3000);
+
+				}
+
+			})
+
+
+
+
+
+
+		})
+
+
+
+
+	</script>
+
+	<body>
+		<div class="wrap">
+
+			<ul class="clear">
+
+				<li>
+					<img src="img/1.gif" alt="">
+					<div class="info">
+
+						<h3>辣爸银幕成绩单</h3>
+						<p>辣爸银幕成绩单《爸爸，去哪儿？》今晚又要来了，你看过这些爸爸们的电影了么？</p>
+					</div>
+
+				</li>
+
+				<li>
+					<img src="img/2.gif" alt="">
+					<div class="info">
+						<h3>《宫锁沉香》可以免费看啦！</h3>
+						<p>于正最新清宫偶像电影作品，你还没看呢？</p>
+					</div>
+				</li>
+
+				<li>
+					<img src="img/3.gif" alt="">
+					<div class="info">
+						<h3>《金蝉脱壳》曝终极预告片 影片五大看点全揭秘</h3>
+						<p>史泰龙说：“我和斯瓦辛格两个人在私下里反复研究，如何能让动作连贯，效果更明显，尤其是在飞机上的枪战戏我们合作十分默契”</p>
+					</div>
+				</li>
+
+				<li>
+					<img src="img/4.gif" alt="">
+					<div class="info">
+						<h3>《扫毒》曝光主题曲MV 刘青云古天乐张家辉反目</h3>
+						<p>MV中刘青云，古天乐与张家辉时而并肩作战，时而针锋相对，甚至持枪互指，三兄弟恩仇难辨，电影的悬疑气氛不言而喻</p>
+
+					</div>
+				</li>
+
+				<li>
+					<img src="img/5.gif" alt="">
+					<div class="info">
+						<h3>《谁说我们不会爱》杜淳意外走光 颖儿娇羞爆表</h3>
+						<p>疑似轻度‘露出’的杜淳直接让一脸蠢萌的颖儿‘惨遭惊吓’到爆表，一种唯美浪漫的喜剧感扑面而来，让人对影片剧情大感好奇和期待。</p>
+					</div>
+				</li>
+
+				<li>
+				<img src="img/1.gif" alt="">
+				<div class="info">
+
+					<h3>辣爸银幕成绩单</h3>
+					<p>辣爸银幕成绩单《爸爸，去哪儿？》今晚又要来了，你看过这些爸爸们的电影了么？</p>
+				</div>
+
+				</li>
+
+
+			</ul>
+
+		</div>
+
+	</body>
+
+</html>

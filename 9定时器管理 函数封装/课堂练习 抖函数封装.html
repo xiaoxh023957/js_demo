@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title></title>
+        <style>
+            *{margin: 0;padding: 0;}
+            img {
+                width: 180px;
+                height: 140px;
+                position: absolute;
+                top:200px;
+               
+            }
+        </style>
+        <script src='jquery-1.12.4.min.js'></script>
+        <script>
+            $(function () {
+           
+                for(var i = 0;i<$('img').length;i++){
+
+                    $($('img')[i]).css('left', 80+i*190+'px');
+
+                    $($('img')[i]).mouseover(function(){
+
+                        $(this).css('height','140px')
+
+                        shake($(this),'height')
+                    })
+                }
+
+              
+
+
+                function shake(obj, attr,endFn) {
+                 
+                    var num = 0;
+                    var arr = [];
+                    var $attr = parseInt(obj.css(attr));
+
+                    for (var i = 20; i > 0; i -= 2) {
+
+                        arr.push(i, -i);
+
+                    }
+                    arr.push( 0 );
+
+                    clearInterval(obj.shakeTinmer);
+
+                    obj.shakeTinmer = setInterval(function(){
+
+                        obj.css(attr, $attr+arr[num]+'px');
+
+                        num++;
+
+                        if( num === arr.length){
+
+                            clearInterval(obj.shakeTinmer);
+
+                            endFn && endFn();
+
+                            obj.shaked = true;
+
+                        }
+                                             
+
+                    },50)
+
+                
+
+                }
+
+
+
+
+            })
+
+
+        </script>
+    </head>
+
+    <body>
+        <img src="img/2.jpg" alt="">
+        <img src="img/2.jpg" alt="">
+        <img src="img/2.jpg" alt="">
+        <img src="img/2.jpg" alt="">
+        <img src="img/2.jpg" alt="">
+        <img src="img/2.jpg" alt="">
+    </body>
+
+</html>

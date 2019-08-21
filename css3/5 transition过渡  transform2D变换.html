@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+        *{ padding: 0;margin: 0;}
+        .clear:after{content:''; display: block;clear:both}
+        ul { width: 500px; list-style: none; margin-left:20px;}
+
+        li{ position: relative; width: 100px;height: 40px;border:1px solid #eee; color: #ccc; float: left; text-align: center;line-height: 40px; margin: 2px; transform: skewX(-40deg)}
+        li div{position: absolute;left: 50%;top: 0; width: 1px;height: 40px;  transition:500ms;transform: translate(-50%,0) ;z-index: 1;}
+        li a{position: absolute; width: 100px;height: 40px;text-decoration: none;display: block; transform: skewX(40deg) ;z-index: 2; }
+        li:hover div{ transform-origin: center;transform: scaleX(100); background: skyblue; }
+        li:hover a{color: snow}
+
+          /*
+            transition: 第一参数：时间 第二参数：延时 可选  
+            第三参数：需要过渡的样式 可选   第四参数：运动形式 （ease逐渐变慢 linear匀速 ease-in加速 ease-out 减速    ease-in-out 先加速后减速） 
+
+            transform: rotate()旋转
+                       skewX/Y（）倾斜
+                       scale（）缩放
+                       translate（）位移
+          */
+    
+    </style>
+</head>
+<body>
+    <ul class="clear">
+        <li><div></div><a href="">旋转</a></li>
+        <li><div></div><a href="">倾斜</a></li>
+        <li><div></div><a href="">缩放</a></li>
+    </ul>
+</body>
+</html>

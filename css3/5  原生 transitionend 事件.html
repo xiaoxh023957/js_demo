@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+    div {width: 100px; height: 100px; background:pink; transition: 1s }
+
+    </style>
+    <script>
+   window.onload = function(){
+
+       var div = document.getElementsByTagName('div')[0]
+       div.onclick = function () { 
+    
+           this.style.width = '200px';
+            addEnd(this,end);
+        }
+
+        function addEnd( obj ,fn){
+        obj.addEventListener("webkitTransitionEnd", fn);  
+        obj.addEventListener("transitionend", fn);      
+    }
+
+    function end (){
+        this.style.transition = '.1s'
+        this.style.width = '100px';
+    }
+   } 
+    
+   
+    </script>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

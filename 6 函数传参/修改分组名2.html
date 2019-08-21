@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	body, ul, li , p {padding: 0; margin: 0;}
+	ul { list-style: none; font-size: 14px; }
+	input, button { border: none; background: none; outline: none; }
+
+	ul { 
+		width: 400px; 
+	}
+
+	ul li {
+		
+		position: relative;
+		padding-left:20px;
+		height: 40px;
+		border-bottom: 1px solid #bddede;
+	
+	}
+
+	ul li p { 
+
+		display: inline-block;
+		line-height: 40px;
+
+	}
+
+	ul li img {
+
+		margin-left: 10px;
+	}
+
+	ul li input { 
+		
+		position: relative; 
+		left: 10px;
+		width: 100px;
+		height: 20px;
+		text-indent: 10px;
+		border: 1px solid  #6ba542;
+		display: none;
+	
+	 }
+
+	 ul li button { 
+		
+		width: 50px;
+		margin-top: 10px;
+		text-align: center;
+		color: #6ba542;
+		display: none;
+
+	  }
+
+	.title { 
+		
+		font-size: 16px;
+		text-indent: 20px;
+		line-height: 40px;
+		background: #6ba542; 
+		color: #fff; 
+
+	}
+
+
+	</style>
+
+	<script type="text/javascript" src="jquery-1.12.4.min.js"></script>
+	<script>
+	$(function(){
+		
+		var $ali = $('ul li');
+
+		$.each($ali,function(i){
+
+			edit( $ali[i]);
+
+		});
+
+		
+		function edit( li ){
+
+			var $img = $(li).find('img');
+			var $define = $(li).find('.define');
+			var $reset = $(li).find('.reset');
+
+			var $input = $(li).find('input');
+			var $button =  $(li).find('button');
+			var $p= $(li).find('p');
+			var $img = $(li).find('img');
+
+
+
+			
+			$img.click(function(){
+				
+				$(this).hide();			
+				$p.hide();
+				$input.show();
+				$button.show();
+				$input.val($p.html());
+
+			});
+		
+
+			$define.click(function(){
+				
+				$(this).hide();			
+				$reset.hide();
+				$input.hide();
+				$img.show();
+				$p.show();
+				$p.html($input.val());
+			});
+	
+
+			$reset.click(function(){
+
+				$(this).hide();			
+				$define.hide();	
+				$input.hide();
+				$img.show();
+				$p.show();
+				$p.html($p.html());
+			});
+		};
+
+	});
+
+
+
+	</script>
+</head>
+<body>
+	<div>
+		<ul>
+			<li class="title">分类名称</li>
+			<li>
+				<p>分组一</p>
+				<img src="img/pan.gif" alt="">
+				<input type="text">
+				<button class="define">确认</button>
+				<button class="reset">取消</button>
+
+			</li>
+
+			<li>
+				<p>分组二</p>
+				<img src="img/pan.gif" alt="">
+				<input type="text">
+				<button class="define">确认</button>
+				<button class="reset">取消</button>
+
+			</li>
+
+			<li>
+				<p>分组三</p>
+				<img src="img/pan.gif" alt="">
+				<input type="text">
+				<button class="define">确认</button>
+				<button class="reset">取消</button>
+
+			</li>
+
+			<li>
+				<p>份组四</p>
+				<img src="img/pan.gif" alt="">
+				<input type="text">
+				<button class="define">确认</button>
+				<button class="reset">取消</button>
+
+			</li>
+
+		</ul>
+
+
+	</div>
+	
+</body>
+</html>

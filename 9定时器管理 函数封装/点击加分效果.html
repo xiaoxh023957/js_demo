@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title></title>
+        <style>
+            .wrap {
+                position: relative;
+                width: 300px;
+                height: 200px;
+                padding: 5px;
+                border: 1px solid #000;
+            }
+
+            .wrap .bg {
+                position: absolute;
+                bottom: 5px;
+                z-index: 1;
+                height: 40px;
+                width: 0;
+                background: skyblue;
+            }
+
+            .wrap .div1 {
+                position: absolute;
+                bottom: 5px;
+                z-index: 2;
+                width: 300px;
+                height: 40px;
+                border: 1px solid #000;
+
+
+            }
+
+            .wrap .score {
+                position: absolute;
+                top: 0;
+                width: 30px;
+                height: 40px;
+                text-align: center;
+                line-height: 40px;
+                font-size: 18px;
+
+
+
+            }
+        </style>
+        <script src="jquery-1.12.4.min.js"></script>
+
+        <script>
+            $(function () {
+
+                var timer = null;
+                var  onOff = true;
+                var num = 0;
+            
+                    for (var i = 0; i < 10; i++) {
+
+                        var $div = '<div class="score">+1</div>';
+
+                        $('.wrap .div1').append($div);
+
+                        $($('.score')[i]).css('left', i * 30 + 'px');
+
+                    }
+
+                
+               
+
+
+                $('.score').click(function () {
+    
+                      
+                    fn();
+                    $('.wrap .bg').delay(1500).animate({ width: '0px' },10)
+                    onOff = false
+
+                
+                   
+                  
+
+                  
+
+                })
+
+
+                function fn() {
+                    clearInterval(timer);
+
+                    timer = setInterval(function () {
+
+                        move($('.score')[num]);
+
+                        num++;
+
+                        if (num === $('.score').length) {
+
+                            clearInterval(timer);
+                        }
+
+
+                    }, 300)
+
+                    $('.wrap .bg').animate({ width: '300px' }, 2000)
+                
+
+
+                }
+
+
+                function move(div) {
+
+                    clearInterval(div.move);
+                    div.move = setInterval(function () {
+
+
+                        var top = parseInt($(div).css('top')) - 20;
+
+                        $(div).css({ 'top': top + 'px' });
+                        $(div).animate({ opacity: '0' }, 500);
+
+                        if (top < -300) {
+
+                            clearInterval(div.move);
+
+                        }
+                    }, 100)
+
+
+                }
+
+
+
+            })
+
+
+
+
+
+
+        </script>
+
+    </head>
+
+    <body>
+        <div class="wrap">
+            <div class="bg"> </div>
+            <div class="div1"></div>
+
+
+        </div>
+    </body>
+
+</html>

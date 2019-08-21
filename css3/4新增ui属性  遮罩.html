@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+        /* -webkit-mask: url() position repeat */
+        div{width: 300px;height: 180px;  -webkit-mask: url('img/zz.png')0 0 no-repeat;transition:3s;}
+       img {width: 300px;height: 180px; }
+
+       @keyframes div{
+            0% {-webkit-mask-position:0px 0px;-webkit-mask-size:20%;}
+            25% {-webkit-mask-position:80px 0px;-webkit-mask-size:40%;}
+            50% {-webkit-mask-position:100px -20px;-webkit-mask-size:60%;}
+            75% {-webkit-mask-position:  0px -30px;-webkit-mask-size:100%;}
+            100% {-webkit-mask-position:center ;-webkit-mask-size:200%;}
+         }
+       
+       div:hover{ animation:div 3s linear infinite ;}
+
+       @keyframes mask{
+            0% {-webkit-mask-position:0px 0px;}
+            25% {-webkit-mask-position:619px 0px;}
+            50% {-webkit-mask-position:0px 0px;}
+            75% {-webkit-mask-position:308px 0px;-webkit-mask-size:100%;}
+            100% {-webkit-mask-size:1000%;}
+         }
+    
+        .mask{
+            width:700px;
+            height:392px;
+            background:black url("http://www.kkkk1000.com/images/1534750163.jpg");
+            -webkit-mask-image:url("http://www.kkkk1000.com/images/1534750222.jpg");
+            animation:mask 5s linear infinite forwards;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="img/cake1.jpg">
+    </div>
+  
+
+       
+  
+        <div class="mask"> </div>
+    
+
+</body>
+</html>

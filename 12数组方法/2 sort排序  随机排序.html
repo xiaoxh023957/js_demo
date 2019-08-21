@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+
+    <body>
+
+        <script src="../jquery-1.12.4.min.js"></script>
+        <script>
+            var arr = [3, 1, 4, 6, 3, 0, 5, 3, 4, 5, 2, 1, 4, 32, 51, 87, 94]
+
+            var newArr = arr.sort(function (a, b) {
+                return a - b;
+            })  //sort是字符串方式排序，需要通过函数转换类型
+
+
+
+
+            var arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+            var newArr2 = arr2.sort(function () {
+                return Math.random() - 0.5;
+            })
+
+            // console.log(newArr2)
+
+
+
+            // //随机公式
+            // //x~y
+            // Math.round(Math.random() * (y - x) + x);
+            // //0~x
+            // Math.round(Math.random() * x);
+            // //1~x
+            // Math.ceil(Math.random() * x);
+
+            //json数据 排序
+            let list = [
+                {
+                    "id": "4",
+                    "caption": "秒味课堂5",
+                    "time": "2018-12-30",
+                    "desc": "JS拖拽的进一步学习,移动与拉伸JS拖拽的进一步练习"
+                },
+
+                {
+                    "id": "1",
+                    "caption": "秒味课堂2",
+                    "time": "2018-12-30",
+                    "desc": "JS拖拽的进一步学习,移动与拉伸JS拖拽的进一步练习"
+                },
+
+                {
+                    "id": "3",
+                    "caption": "秒味课堂4",
+                    "time": "2018-12-30",
+                    "desc": "JS拖拽的进一步学习,移动与拉伸JS拖拽的进一步练习"
+                },
+                {
+                    "id": "2",
+                    "caption": "秒味课堂3",
+                    "time": "2018-12-30",
+                    "desc": "JS拖拽的进一步学习,移动与拉伸JS拖拽的进一步练习"
+                },
+                {
+                    "id": "0",
+                    "caption": "秒味课堂1",
+                    "time": "2018-12-30",
+                    "desc": "JS拖拽的进一步学习,移动与拉伸JS拖拽的进一步练习"
+                },
+
+                {
+                    "id": "3",
+                    "caption": "秒味课堂4",
+                    "time": "2018-12-30",
+                    "desc": "JS拖拽的进一步学习,移动与拉伸JS拖拽的进一步练习"
+                }
+
+            ]
+
+
+          
+           
+            //排序  先排序后生成结构
+            var li = list.sort((a, b) => {
+                return  a.id - b.id;
+            })
+           
+
+            // var lm = li.map((item) => {
+            //     return item.id;
+            // })
+
+  //去重法1
+ // var liS = new Set(lm);
+
+  console.log(li);
+          
+        </script>
+    </body>
+
+</html>

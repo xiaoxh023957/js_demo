@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title></title>
+        <style>
+            body {
+                background: #000;
+                text-align: center;
+                font: 40px/100px '宋体';
+
+            }
+
+            h1 {
+                display: inline-block;
+                color: rgba(255, 255, 255, .5);
+                background: -webkit-linear-gradient(-30deg,
+                    rgba(255, 255, 255, 0)0,
+                    rgba(255, 255, 255, 0)180px,
+                    rgba(255, 255, 255, 1)220px,
+                    rgba(255, 255, 255, 1)280px,
+                    rgba(255, 255, 255, 0)320px) no-repeat -400px 0;
+                -webkit-background-clip: text;
+
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>
+            不知所起，从一而终。
+        </h1>
+        <script>
+            var h1 = document.getElementsByTagName('h1')[0];
+            var timer = null;
+            var left = -400;
+           
+            //控制光晕
+            function move() {
+                timer = setInterval(function () {
+                    left += 12;
+                    h1.style.backgroundPosition = left + 'px+0';
+
+                    if (left == 2000) {
+
+                        left = -400;
+                        clearInterval(timer);
+                    }
+                }, 20);
+
+
+            }
+            move();
+
+            setInterval(function () {
+                move();
+            }, 3000);
+
+        //重复执行
+
+        </script>
+    </body>
+
+</html>

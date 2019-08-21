@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>钟表实例</title>
+        <style>
+            /*
+        变换基点：
+            transform-origin: 方向关键词/具体数值
+
+        transform 执行顺序问题：后写的先执行
+    */
+            * {
+                margin: 0;
+                height: 0;
+            }
+
+            .wrap {
+                position: relative;
+                width: 200px;
+                height: 200px;
+                border: 4px solid #000;
+                border-radius: 50%;
+                margin: 0 auto;
+            }
+
+            .wrap ul {
+                list-style: none;
+                position: relative;
+                height: 200px;
+            }
+
+            .wrap ul li {
+                position: absolute;
+                left: 99px;
+                top: 0;
+                width: 2px;
+                height: 6px;
+                background: #000;
+                transform-origin: center 100px;
+            }
+
+            .wrap ul li:nth-child(5n+1) {
+                height: 12px;
+            }
+
+            .h {
+                position: absolute;
+                left: 97px;
+                top: 55px;
+                width: 5px;
+                height: 45px;
+                background: #000;
+                transform-origin: center bottom;
+                z-index: 3;
+            }
+
+            .m {
+                position: absolute;
+                left: 98px;
+                top: 30px;
+                width: 4px;
+                height: 70px;
+                background: #000;
+                transform-origin: center bottom;
+                z-index: 2;
+            }
+
+            .s {
+                position: absolute;
+                left: 99px;
+                top: 20px;
+                width: 2px;
+                height: 80px;
+                background: red;
+                transform-origin: center bottom;
+                z-index: 1;
+            }
+
+            .icon {
+                width: 8px;
+                height: 8px;
+                background: #000;
+                border-radius: 50%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%)
+            }
+        </style>
+        <script src="../jquery-1.12.4.min.js"></script>
+        <script>
+            $(function () {
+
+                var len = 60;
+
+                for (var i = 0; i < len; i++) {
+                    var lis = '<li><li/>';
+                    $('.wrap ul').append(lis);
+                    $($('.wrap ul li')[i]).css({ 'Transform': 'rotate(' + i * 6 + 'deg)' })
+                }
+
+                setInterval(time, 1000);
+
+                function time() {
+                    var myDate = new Date();
+                    
+                    var s = myDate.getSeconds();
+
+                    var m = myDate.getMinutes() + s / 60;
+                   
+                    var h = myDate.getHours() + m / 60;
+
+                    $('.h').css({ 'Transform': 'rotate(' + h * 30 + 'deg)' });
+
+                    $('.m').css({ 'Transform': 'rotate(' + m * 6 + 'deg)' });
+
+                    $('.s').css({ 'Transform': 'rotate(' + s * 6 + 'deg)' });
+                }
+                time();
+
+
+
+            })
+        </script>
+    </head>
+
+    <body>
+        <div class="wrap">
+            <ul></ul>
+            <div class="h"></div>
+            <div class="m"></div>
+            <div class="s"></div>
+            <div class="icon"></div>
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style >
+	body, h4, p, ul, li ,button { margin: 0; padding: 0; }
+	ul { list-style:  none;  font-size: 11px;}
+	img { vertical-align: top; }
+	strong { font-weight: normal; }
+	a { text-decoration: none; }
+	button { border: none; background: none; outline: none; }
+
+
+
+	.clear:after { content: ''; display: block; clear: both; }
+
+	.wrap { width: 254px; height: 398px; border: 1px solid #d0d0d0; background: #dee7e7; position: relative; left: 20px; top: 20px;  padding: 0 7px;}
+
+	.wrap h4 { height: 39px; line-height: 40px; border-bottom: 1px solid #94bdd6; color: #103142; text-indent: 2em;  }
+
+	.tab { position: absolute; top:14px; right: 7px; }
+	
+	.tab li { width: 35px; height: 24px; border: 1px solid #94bdd6; float: left; border-right: none; line-height: 26px; text-align: center; color: #185273; }
+
+	.tab li:last-child { border-right: 1px solid #94bdd6; }
+
+	 .tab .tabactive { border-bottom:1px solid #dee7e7;  color: #000; font-weight: bold; }
+
+	 .cont ul { position: relative; }
+
+	 .cont li { position: relative; width: 100%; height: 27px; border-bottom: 1px dashed #fff; }
+
+	 .cont li>p { width: 210px;line-height: 27px; color: #393131; position: absolute; top: 0; left: 38px; z-index: 1; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+
+	.cont .contactiv {  width: 100%; height: 78px; background: #fff;}
+
+	 .cont li span {  position: relative; width: 17px; height: 13px; display: inline-block; line-height: 13px; color: #fff; background: #29739c; text-align: center; margin:  8px 10px 0; }
+
+
+	.wrap strong {  display: block; width: 100%; height: 26px;line-height: 26px;  position: absolute; bottom: 0;}
+
+	.wrap strong a { position: absolute; right: 0;  width: 50px; display: block; font-size: 11px;  color: #103142;  }
+
+	.wrap strong a:hover { color:#999; }
+	
+	.week,.all { display: none; }
+
+
+
+	.imgwrap { position: absolute; top: 0 ; right: 0; width: 220px; height: 64px; padding:7px 0;  z-index: 2; -display: none; background: #fff; display: none;}
+
+	.imgwrap  img { width: 80px; height: 60px; padding: 2px; border: 1px solid #94bdd6; }
+
+	.imgwrap button { position: absolute;  right: 6px; bottom: 7px; width: 40px;height: 20px; padding-left: 10px;border-radius: 4px; background: #29739c url(img/bg.gif) no-repeat 5px 7px;  color: #fff;   font-size: 11px;line-height: 20px ; }
+
+	.imgwrap .text { position: absolute; top:7px; right:0 ; width: 118px; height: 46px;  padding
+		: 0 8px;color: #185273; font-size: 11px; line-height: 18px;}
+
+
+	</style>
+
+
+	<script type="text/javascript" src='jquery-1.12.4.min.js'></script>
+
+	<script >
+	$(function () {
+		
+
+		//选项卡切换
+		$('.tab li').each(function(i){
+
+			$(this).click(function(){
+
+				$('.tab li').attr('class','').eq(i).attr('class','tabactive')
+
+				$('.cont ul').css('display','none').eq(i).css('display','block');
+
+			});
+		});
+		
+		$('.cont li').each(function(i){
+			
+			$(this).on({
+
+				mouseover:function(){
+
+					// var $imgwT =this.offsetTop ;
+					// var $imgwL =this.offsetLeft;
+
+					$(this).attr('class','contactiv').siblings().attr('class','');
+
+					$(this).find('.imgwrap').css('display','block');				
+				},
+
+				mouseout:function(){
+
+					$(this).attr('class','');
+					$(this).find('.imgwrap').css('display','none');
+			
+				}
+
+			});
+
+		});
+
+
+	});
+
+
+
+	</script>
+</head>
+<body>
+	<div class="wrap">
+
+		<h4>观看排行榜</h4>
+
+		<div class="tab">
+			<ul class="clear">
+				<li class="tabactive">每日</li>
+				<li>每周</li>
+				<li>全部</li>
+			</ul>
+		</div>
+		
+		<div class="cont">
+			<ul class="day">
+				<li > 
+					<span >1</span>
+					<p>解密：关于地球与人类的一千零一问	........</p>
+
+					<div class="imgwrap">
+						<img src="img/1.gif">
+						<div class="text">
+						<p>深度解密传奇事件人物，探索未知</p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+				</li>
+
+
+				<li>
+				 	<span>2</span>
+				 	<p>经典传奇：探索全世界重大历史事件</p>
+				 	<div class="imgwrap">
+						<img src="img/2.gif">
+
+						<div class="text">
+						<p>经典，热点的全方位揭秘解密！</p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+
+				 </li>
+
+				<li> 
+					<span>3</span>
+					<p>眼界：展现普通人的曲折命运</p>
+					<div class="imgwrap">
+						<img src="img/3.gif">
+
+						<div class="text">
+						<p>展现普通人的曲折命运和动人故事。</p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+				</li>
+
+
+				<li> 
+					<span>4</span>
+					<p>档案（BTV）：惊人事件和传奇背后</p>
+					<div class="imgwrap">
+						<img src="img/3.gif">
+
+						<div class="text">
+						<p>解密的高级军事档案，公安档案。</p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+				</li>
+
+
+				<li> 
+
+					<span>5</span>
+					<p>世纪十最：30个震惊世界的TOP10</p>
+					<div class="imgwrap">
+						<img src="img/4.gif">
+
+						<div class="text">
+						<p>30个令人目瞪口呆的惊奇榜单 </p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+				</li>
+
+
+				<li> 
+					<span>6</span>
+					<p>身边的毛泽东：警卫员解密毛泽东秘密</p>
+					<div class="imgwrap">
+						<img src="img/1.gif">
+
+						<div class="text">
+						<p>毛泽东的警卫，亲人，保健医生 </p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+				</li>
+
+
+				<li> 
+					<span>7</span>
+					<p>新电影传奇：每一部电影都有自己的故事</p>
+					<div class="imgwrap">
+						<img src="img/7.gif">
+
+						<div class="text">
+						<p>每一部电影都有自己的故事</p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+				</li>
+
+
+				<li> 
+					<span>8</span>
+					<p>档案（上视纪实频道）：解密档案</p>
+					<div class="imgwrap">
+						<img src="img/8.gif">
+
+						<div class="text">
+						<p>解密档案中的历史秘密，探寻解读...</p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+				</li>
+
+
+				<li> 
+					<span>9</span>
+					<p>探寻传世国宝的千古传奇</p>
+					<div class="imgwrap">
+						<img src="img/9.gif">
+
+						<div class="text">
+						<p>解密珍品背后的重大事件</p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+				</li>
+
+
+				<li> 
+					<span>10</span>
+					<p>纪实系列：讲述社会百态，透视事实真相</p>
+					<div class="imgwrap">
+						<img src="img/10.gif">
+
+						<div class="text">
+						<p>讲述社会百态，透视事实真相<</p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+				</li>
+			</ul>
+
+			<ul class="week">
+				<li > 
+					<span >1</span>
+					<p>解密：关于地球一千零一问</p>
+					<div class="imgwrap">
+						<img src="img/1.gif">
+
+						<div class="text">
+						<p>深度解密传奇事件人物，探索未知</p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+				</li>
+
+
+				<li>
+				 	<span>2</span>
+				 	<p>经典传奇：重大历史事件</p>
+				 	<div class="imgwrap">
+						<img src="img/1.gif">
+
+						<div class="text">
+						<p>深度解密传奇事件人物，探索未知</p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+				 	
+
+				 </li>
+
+				<li> 
+					<span>3</span>
+					<p>眼界：曲折命运</p>
+					<div class="imgwrap">
+						<img src="img/1.gif">
+
+						<div class="text">
+						<p>深度解密传奇事件人物，探索未知</p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+					
+				</li>
+
+
+				<li> 
+					<span>4</span>
+					<p>档案（BTV）：传奇背后</p>
+					<div class="imgwrap">
+						<img src="img/1.gif">
+
+						<div class="text">
+						<p>深度解密传奇事件人物，探索未知</p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+					
+				</li>
+
+
+				<li> 
+
+					<span>5</span>
+					<p>世纪十最：震惊世界的TOP10</p>
+					<div class="imgwrap">
+						<img src="img/1.gif">
+
+						<div class="text">
+						<p>深度解密传奇事件人物，探索未知</p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+					
+				</li>
+
+
+				<li> 
+					<span>6</span>
+					<p>身边的毛泽东：毛泽东秘密</p>
+					<div class="imgwrap">
+						<img src="img/1.gif">
+
+						<div class="text">
+						<p>深度解密传奇事件人物，探索未知</p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+					
+				</li>
+
+
+				<li> 
+					<span>7</span>
+					<p>新电影传奇：自己的故事</p>
+					<div class="imgwrap">
+						<img src="img/1.gif">
+
+						<div class="text">
+						<p>深度解密传奇事件人物，探索未知</p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+					
+				</li>
+
+
+				<li> 
+					<span>8</span>
+					<p>档案：解密档案</p>
+					<div class="imgwrap">
+						<img src="img/1.gif">
+
+						<div class="text">
+						<p>深度解密传奇事件人物，探索未知</p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+					
+				</li>
+
+
+				<li> 
+					<span>9</span>
+					<p>千古传奇</p>
+					
+				</li>
+
+
+				<li> 
+					<span>10</span>
+					<p>纪实系列：讲述社会百态</p>
+					<div class="imgwrap">
+						<img src="img/1.gif">
+
+						<div class="text">
+						<p>深度解密传奇事件人物，探索未知</p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+				</li>
+			</ul>
+
+
+			<ul class="all">
+				<li > 
+					<span >1</span>
+					<p>解密：关于地球</p>
+					<div class="imgwrap">
+						<img src="img/1.gif">
+
+						<div class="text">
+						<p>深度解密传奇事件人物，探索未知</p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+				</li>
+
+
+				<li>
+				 	<span>2</span>
+				 	<p>经典传奇：探索全世界</p>
+				 	<div class="imgwrap">
+						<img src="img/1.gif">
+
+						<div class="text">
+						<p>深度解密传奇事件人物，探索未知</p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+				 	
+
+				 </li>
+
+				<li> 
+					<span>3</span>
+					<p>眼界：展现普通人</p>
+					<div class="imgwrap">
+						<img src="img/1.gif">
+
+						<div class="text">
+						<p>深度解密传奇事件人物，探索未知</p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+					
+				</li>
+
+
+				<li> 
+					<span>4</span>
+					<p>档案（BTV）：惊人事件</p>
+					<div class="imgwrap">
+						<img src="img/1.gif">
+
+						<div class="text">
+						<p>深度解密传奇事件人物，探索未知</p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+					
+				</li>
+
+
+				<li> 
+
+					<span>5</span>
+					<p>世纪十最：30个震惊世界</p>
+					<div class="imgwrap">
+						<img src="img/1.gif">
+
+						<div class="text">
+						<p>深度解密传奇事件人物，探索未知</p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+					
+				</li>
+
+
+				<li> 
+					<span>6</span>
+					<p>身边的毛泽东：警卫员解密</p>
+					<div class="imgwrap">
+						<img src="img/1.gif">
+
+						<div class="text">
+						<p>深度解密传奇事件人物，探索未知</p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+					
+				</li>
+
+
+				<li> 
+					<span>7</span>
+					<p>新电影传奇：每一部电影</p>
+					<div class="imgwrap">
+						<img src="img/1.gif">
+
+						<div class="text">
+						<p>深度解密传奇事件人物，探索未知</p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+					
+				</li>
+
+
+				<li> 
+					<span>8</span>
+					<p>上视纪实频道：解密档案</p>
+					<div class="imgwrap">
+						<img src="img/1.gif">
+
+						<div class="text">
+						<p>深度解密传奇事件人物，探索未知</p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+					
+				</li>
+
+
+				<li> 
+					<span>9</span>
+					<p>探寻传世国宝</p>
+					<div class="imgwrap">
+						<img src="img/1.gif">
+
+						<div class="text">
+						<p>深度解密传奇事件人物，探索未知</p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+					
+				</li>
+
+
+				<li> 
+					<span>10</span>
+					<p>纪实系列：透视事实真相</p>
+					<div class="imgwrap">
+						<img src="img/1.gif">
+
+						<div class="text">
+						<p>深度解密传奇事件人物，探索未知</p>
+
+						</div>
+						
+						<button>播放</button>
+					</div>
+				</li>
+			</ul>
+
+			<strong><a href="javascript:;">更多>></a></strong>
+		</div>
+
+	</div>	
+
+	
+</body>
+</html>

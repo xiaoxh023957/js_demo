@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            a {
+                text-decoration: none;
+                color: #000;
+            }
+
+            .menu {
+                width: 120px;
+                border: 1px solid #eee;
+                position: relative;
+                height: 26px;
+                cursor: pointer;
+            }
+
+            .menu strong {
+                position: absolute;
+                top: 10px;
+                right: 4px;
+                width: 0;
+                height: 0;
+                border: 4px solid transparent;
+                border-top: 4px solid #000;
+            }
+
+            .menu span{
+                user-select:none;
+            }
+
+            .menu .sub {
+                position: absolute;
+                display: none;
+                left: 0px;
+                top: 26px;
+                background: #eee;
+                width: 100%;
+            }
+
+
+            .wrap {
+                width: 500px;
+                border: 1px solid #000;
+            }
+
+            .conWrap {
+                width: 100%;
+                height: 300px;
+            }
+
+            .conWrap span {
+                width: 20px;
+                height: 46px;
+                color: #fff;
+                padding-top: 4px;
+                font-size: 12px;
+                text-align: center;
+                display: inline-block;
+                margin: 2px;
+            }
+
+            textarea {
+                width: 100%;
+                height: 90px;
+                padding: 10px 0;
+                border: none;
+                text-indent: 2em;
+
+            }
+        </style>
+
+        <script src="jquery-1.12.4.min.js"></script>
+        <script>
+            $(function () {
+
+                var qiqiu = ['img/1.png', 'img/2.png', 'img/3.png', 'img/4.png', 'img/5.png']
+                var shuye = ['img/1-1.png'];
+
+                $('.menu').click(function () {
+
+                    $('.sub').toggle();
+
+                    for (var i = 0; i < $('dd').length; i++) {
+
+                        $($('dd')[i]).click(function () {
+                            var ddText = $(this).html()
+
+                            $('.menu>span').html(ddText);
+
+                            $('.sub').hide();
+                            return false;
+                        })
+
+                    }
+                })
+
+                $('button').click(function () {
+                    var bg = '气球背景';
+                    var spanText = $('.menu>span').html();
+                    console.log(spanText)
+
+                    if (spanText == bg) {
+                        fn(qiqiu);
+                    } else {
+                        fn(shuye);
+                    }
+                    $('textarea').val('');
+                })
+
+                function fn(img) {
+
+                    var val = $('textarea').val().split('');
+
+                    for (var i = 0; i < val.length; i++) {
+
+                        val[i] = '<span style = "background:url(' + $(img)[i % $(img).length] + ');background-size: 100% 100%">' + val[i] + '</span>';
+
+                    }
+
+                    $('.conWrap').append(val.join('') + '<br>')
+
+
+
+
+                }
+
+
+            })
+
+
+
+        </script>
+    </head>
+
+    <body>
+        <div class="wrap">
+
+            <div class="conWrap"></div>
+
+            <div class="menu">
+                <span>气球背景</span>
+                <strong></strong>
+                <dl class="sub">
+                    <dd>气球背景</dd>
+                    <dd>树叶背景</dd>
+
+                </dl>
+            </div>
+
+
+            <textarea></textarea>
+            <button>发送(S)</button>
+
+
+
+        </div>
+    </body>
+
+</html>
